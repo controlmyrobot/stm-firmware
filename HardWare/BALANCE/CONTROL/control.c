@@ -15,6 +15,8 @@ float Gyro_K=-0.6;						//陀螺仪比例系数
 int Gyro_Bias;
 int j;
 unsigned int TimClk = 200;
+int speedMultiplier = 2;
+int speedMultiplierLeftRight = 1;
 #define a_PARAMETER          (0.311f)               
 #define b_PARAMETER          (0.3075f)         
 /**************************************************************************
@@ -36,10 +38,10 @@ void Kinematic_Analysis(float Vx,float Vy,float Vz)
 	if(temp > 1 || temp < -1)
 		Vz += Gyro_K * temp;
 #endif
-	Target_A   = -Vx+Vy+Vz*(a_PARAMETER+b_PARAMETER);
-	Target_B   = +Vx+Vy-Vz*(a_PARAMETER+b_PARAMETER);
-	Target_C   = -Vx+Vy-Vz*(a_PARAMETER+b_PARAMETER);
-	Target_D   = +Vx+Vy+Vz*(a_PARAMETER+b_PARAMETER);
+	Target_A   = -Vx+Vy+Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_B   = +Vx+Vy-Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_C   = -Vx+Vy-Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_D   = +Vx+Vy+Vz;//*(a_PARAMETER+b_PARAMETER);
 }
 /**************************************************************************
 函数功能：所有的控制代码都在这里面
@@ -106,9 +108,13 @@ int EXTI15_10_IRQHandler(void)
 #endif
 		if(InspectQueue())
 		{
-			Flag_Direction=OutQueue();  
+		//printf("Debug: InspectQueue\r\n");
+			Flag_Direction=OutQueue();
+		}else{
+			
+		//printf("Debug: InspectQueue (skipping)\r\n");
 		}
-		else
+		/*else
 		{
 			if((PS2_LX > 250 && PS2_LY > 250 &&PS2_RX > 250 &&PS2_RY > 250)
 				|| (PS2_LX == 0 && PS2_LY == 0 &&PS2_RX == 0 &&PS2_RY == 0))
@@ -131,12 +137,19 @@ int EXTI15_10_IRQHandler(void)
 			Move_Y=-LY*RC_Velocity/(400 + RY);	
 			if(RX != 0)	Gyro_Bias = Yaw;
 			Move_Z=-RX*RC_Velocity/(400 + RY);
-		}
+		}*/
 
 		Get_RC(0);
 		
 		Xianfu_Pwm(6900);                     //===PWM限幅
-		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===赋值给PWM寄存器  
+		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===赋值给PWM寄存器 
+		
+		//USART_SendData(USART1,':');
+	//		USART_SendData(USART1,Motor_A);
+	//		USART_SendData(USART1,Motor_B);
+	// USART_SendData(USART1,Motor_C);
+	//		USART_SendData(USART1,Motor_D);
+	//	USART_SendData(USART1,':');
 	}
 	return 0;	 
 } 
@@ -276,36 +289,123 @@ int Incremental_PI_D (int Encoder,int Target)
 void Get_RC(u8 mode)
 {
 	float step=0.25;  //设置速度控制步进值。
+	float stepSide=0.04;  //设置速度控制步进值。
 	u8 Flag_Move=1;
+	
 
+	// speed stuff
+	switch(Flag_Direction) 
+	{
+		case '1':	speedMultiplier = 1;	speedMultiplierLeftRight = 1;	break;
+		case '2':	speedMultiplier = 2;	speedMultiplierLeftRight = 1;	break;
+		case '3':	speedMultiplier = 3;	speedMultiplierLeftRight = 2;	break;
+		case '4':	speedMultiplier = 4;	speedMultiplierLeftRight = 3;	break;
+		case '5':	speedMultiplier = 6;	speedMultiplierLeftRight = 3;	break;
+		case '6':	speedMultiplier = 7;	speedMultiplierLeftRight = 3;	break;
+		case '7':	speedMultiplier = 9;	speedMultiplierLeftRight = 3;	break;
+		case '8':	speedMultiplier = 11;	speedMultiplierLeftRight = 3;	break;
+		case '9':	speedMultiplier = 13;	speedMultiplierLeftRight = 3;	break;
+	}
+	
+	// just hard coding this to 25 for now
+	RC_Velocity = 25;
+
+	float moveForwardSpeed = 2 * speedMultiplier;
+	float moveZSpeed = 1 * speedMultiplier;
+	float moveLeftRightSpeed = 0.5 * speedMultiplierLeftRight;
+		
 	switch(Flag_Direction)   //方向控制
 	{
-		case 'A':	Move_X=0;		Move_Y+=step;				Flag_Move=1;	break;
-		case 'B':	Move_X+=step;	Move_Y+=step;				Flag_Move=1;	break;
-		case 'C':	Move_X+=step;	Move_Y=0;					Flag_Move=1;	break;
-		case 'D':	Move_X+=step;	Move_Y-=step;				Flag_Move=1;	break;
-		case 'E':	Move_X=0;		Move_Y-=step;				Flag_Move=1;	break;
-		case 'F':	Move_X-=step;	Move_Y-=step;				Flag_Move=1;	break;
-		case 'G':	Move_X-=step;	Move_Y=0;					Flag_Move=1;	break;
-		case 'H':	Move_X-=step;	Move_Y+=step;				Flag_Move=1;	break; 
-		case 'Z':	Move_X = 0;		Move_Y=0;		Move_Z=0;					break;
-		case 'L':	RC_Velocity = 30;											break;
-		case 'M':	RC_Velocity = 10;											break;
-		case 'a':	break;
-		case 'b':	Move_Z-=step;		Gyro_Bias = Yaw;	break;
-		case 'c':	break;
-		case 'd':	Move_Z+=step;		Gyro_Bias = Yaw;	break;
+		
+		
+		// speed increase
+		case 'e':	RC_Velocity+=2;	Flag_Move=1;Flag_Direction = NULL; 									break;
+		case 'q':	RC_Velocity-=2;	Flag_Move=1;Flag_Direction = NULL; 								break;
+		// speed stop
+		case 'r':	Move_X = 0;		Move_Y=0;		Move_Z=0;					break;
+		
+		//case "N": serialMessage = 'w'; break;
+		//case "E": serialMessage = 'd'; break;
+		//case "S": serialMessage = 's'; break;
+		//case "W": serialMessage = 'a'; break;
+		//case "C": serialMessage = 'o'; break;
+		//case "NW": serialMessage = 'h'; break;
+		//case "NE": serialMessage = 'y'; break;
+		//case "SE": serialMessage = 'g'; break;
+		//case "SW": serialMessage = 't'; break;
+		//default: serialMessage = 'o'; break;
 
-		case 'O':	break;	//控制头部 
-		case 'N': 	break;	//控制转向
-		case 'I': 	break;	//遥控
-		case 'J': 	break;	//跟随
-		case 'K': 	break;	//避障
-		case 'P': 	break;	//LED_on
-		case 'p': 	break;	//LED_off
-		default: Flag_Move=0;        Move_X=Move_X/1.04;	Move_Y=Move_Y/1.04;	  break;	 
+		// Motors:
+		// [B] [A]
+		// [C] [D]
+		// Targets: (A, B, C, D)
+		// 10, 10, 10, 10 = forward
+		// -10, -10, -10, -10 = back
+		// -10 10 -10 10 = slide right
+		// 10 -10 10 -10 = slide left
+		// 5, 10, 10, 5 = forward slight right
+		// 10, 5, 5, 10 = forward slide left
+		// -5, -10, -10, -5 = back slight right
+		// -10, -5, -5, -10 = back slight left
+		// -10, 10, 10, -10 = rotate right
+		// 10, -10, -10, 10 = rotate left
+		
+		
+		//wasd first:
+		case 'w':	Move_X=0;		Move_Y=moveForwardSpeed;	Move_Z=0;			Flag_Move=1;	break; // North 
+		case 's':	Move_X=0;		Move_Y=-moveForwardSpeed;	Move_Z=0;			Flag_Move=1;	break; // South
+		case 'a':	Move_X=0;	Move_Y=0;		Move_Z=moveZSpeed;		Flag_Move=1;	break; // rotate left
+		case 'd':	Move_X=0;	Move_Y=0;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // rotate right
+		
+		case 'y':	Move_X=0;	Move_Y=moveZSpeed;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // NE
+		case 'g':	Move_X=0;	Move_Y=-moveZSpeed;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // SE
+		case 't':	Move_X=0;	Move_Y=-moveZSpeed;		Move_Z=moveZSpeed;		Flag_Move=1;	break; // SW
+		case 'h':	Move_X=0;	Move_Y=moveZSpeed;	Move_Z=moveZSpeed;		Flag_Move=1;	break; // NW
+		
+		case 'c':	Move_X=-moveZSpeed * 2;	Move_Y=0;	Move_Z=0;			Flag_Move=1;	break; // slide left
+		case 'v':	Move_X=moveZSpeed * 2; Move_Y=0;  Move_Z=0;     Flag_Move=1;	break; // slide right
+		
+		
+		//wasd first:
+		//case 'w':	Move_X=0;		Move_Y+=step;				Flag_Move=1;	break;
+		//case 's':	Move_X=0;		Move_Y-=step;				Flag_Move=1;	break;
+		//case 'a':	Move_X-=stepSide;	Move_Y=0;					Flag_Move=1;	break;
+		//case 'd':	Move_X+=stepSide;	Move_Y=0;					Flag_Move=1;	break;
+		//case 't':	Move_X+=stepSide;	Move_Y-=stepSide;				Flag_Move=1;	break;
+		//case 'y':	Move_X+=stepSide;	Move_Y+=stepSide;				Flag_Move=1;	break;
+		//case 'g':	Move_X-=stepSide;	Move_Y-=stepSide;				Flag_Move=1;	break;
+		//case 'h':	Move_X-=stepSide;	Move_Y+=stepSide;				Flag_Move=1;	break; 
+		
+		//only moving single direction
+		//case 'w':	Move_Y+=step;				Flag_Move=1;	break;
+		//case 's':	Move_Y-=step;				Flag_Move=1;	break;
+		//case 'a':	Move_X-=stepSide;					Flag_Move=1;	break;
+		//case 'd':	Move_X+=stepSide;					Flag_Move=1;	break;
+		//case 't':	Move_X+=stepSide;	Move_Y-=step;				Flag_Move=1;	break;
+		//case 'y':	Move_X+=stepSide;	Move_Y+=step;				Flag_Move=1;	break;
+		//case 'g':	Move_X-=stepSide;	Move_Y-=step;				Flag_Move=1;	break;
+		//case 'h':	Move_X-=stepSide;	Move_Y+=step;				Flag_Move=1;	break; 
+		
+		//wasd first:
+		//case 'w':	Move_X=0;		Move_Y+=step;				Flag_Move=1;	break;
+		//case 's':	Move_X=0;		Move_Y-=step;				Flag_Move=1;	break;
+		//case 'a':	Move_X-=step;	Move_Y=0;					Flag_Move=1;	break;
+		//case 'd':	Move_X+=step;	Move_Y=0;					Flag_Move=1;	break;
+		//case 't':	Move_X+=step;	Move_Y-=step;				Flag_Move=1;	break;
+		//case 'y':	Move_X+=step;	Move_Y+=step;				Flag_Move=1;	break;
+		//case 'g':	Move_X-=step;	Move_Y-=step;				Flag_Move=1;	break;
+		//case 'h':	Move_X-=step;	Move_Y+=step;				Flag_Move=1;	break; 
+		
+		//case 'u':	Move_Z-=step;		Gyro_Bias = Yaw;	break;
+		//case 'i':	Move_Z+=step;		Gyro_Bias = Yaw;	break;
+
+		default: Flag_Move=0;        Move_X=Move_X/1.04;	Move_Y=Move_Y/1.04;	Move_Z=Move_Z/1.04;	  break;	 
 	}
-	if(Flag_Move==1)		Flag_Left=0,Flag_Right=0;//Move_Z=0;
+	
+	
+	if(RC_Velocity > 25)RC_Velocity = 25;
+	if(RC_Velocity < 1)RC_Velocity = 1;
+	//if(Flag_Move==1)		Flag_Left=0,Flag_Right=0;//Move_Z=0;
 	if(Move_X<-RC_Velocity)	Move_X=-RC_Velocity;	   //速度控制限幅
 	if(Move_X>RC_Velocity)	Move_X=RC_Velocity;	     
 	if(Move_Y<-RC_Velocity)	Move_Y=-RC_Velocity;	

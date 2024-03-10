@@ -1,2 +1,2 @@
-.\obj\filter.o: HardWare\BALANCE\filter\filter.c
-.\obj\filter.o: HardWare\BALANCE\filter\filter.h
+./obj/filter.o: HardWare\BALANCE\filter\filter.c \
+  HardWare\BALANCE\filter\filter.h

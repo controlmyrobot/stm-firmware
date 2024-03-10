@@ -19,5 +19,6 @@ void USART3_Init(u32 bound);
 void USART3_Send_Data(u8 Dat);
 u8 InspectQueue(void);
 u8 OutQueue(void);
+void InQueue(u8 Data);
 
 #endif

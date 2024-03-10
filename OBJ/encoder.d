@@ -1,58 +1,42 @@
-.\obj\encoder.o: HardWare\ENCODER\encoder.c
-.\obj\encoder.o: HardWare\ENCODER\encoder.h
-.\obj\encoder.o: .\Public\sys.h
-.\obj\encoder.o: D:\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
-.\obj\encoder.o: .\Libraries\CMSIS\core_cm3.h
-.\obj\encoder.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
-.\obj\encoder.o: D:\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h
-.\obj\encoder.o: .\User\stm32f10x_conf.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
-.\obj\encoder.o: D:\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
-.\obj\encoder.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\obj\encoder.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\encoder.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
-.\obj\encoder.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\obj\encoder.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\encoder.o: .\Public\Systick.h
-.\obj\encoder.o: .\Public\Sys.h
-.\obj\encoder.o: .\User\define.h
-.\obj\encoder.o: .\Public\usart.h
-.\obj\encoder.o: .\HardWare\LED\LED.h
-.\obj\encoder.o: .\HardWare\KEY\KEY.h
-.\obj\encoder.o: .\HardWare\OLED\oled.h
-.\obj\encoder.o: .\HardWare\BALANCE\show\show.h
-.\obj\encoder.o: .\HardWare\MOTOR\motor.h
-.\obj\encoder.o: .\HardWare\IIC\ioi2c.h
-.\obj\encoder.o: .\HardWare\BlueTooth\BlueTooth.h
-.\obj\encoder.o: .\HardWare\BALANCE\CONTROL\control.h
-.\obj\encoder.o: .\HardWare\EXTI\exti.h
-.\obj\encoder.o: .\HardWare\ENCODER\encoder.h
-.\obj\encoder.o: .\HardWare\ADC\adc.h
-.\obj\encoder.o: .\HardWare\BALANCE\DMP\inv_mpu.h
-.\obj\encoder.o: .\HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h
-.\obj\encoder.o: .\HardWare\BALANCE\MPU6050\mpu6050.h
-.\obj\encoder.o: .\HardWare\BALANCE\DMP\dmpKey.h
-.\obj\encoder.o: .\HardWare\BALANCE\DMP\dmpmap.h
-.\obj\encoder.o: .\HardWare\PS2\pstwo.h
-.\obj\encoder.o: .\User\config.h
+./obj/encoder.o: HardWare\ENCODER\encoder.c HardWare\ENCODER\encoder.h \
+  Public\sys.h \
+  C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h \
+  Libraries\CMSIS\core_cm3.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h \
+  User\stm32f10x_conf.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
+  Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h Public\Systick.h \
+  User\define.h Public\usart.h HardWare\LED\LED.h HardWare\KEY\KEY.h \
+  HardWare\OLED\oled.h HardWare\BALANCE\show\show.h \
+  HardWare\MOTOR\motor.h HardWare\IIC\ioi2c.h \
+  HardWare\BlueTooth\BlueTooth.h HardWare\BALANCE\CONTROL\control.h \
+  HardWare\EXTI\exti.h HardWare\ADC\adc.h HardWare\BALANCE\DMP\inv_mpu.h \
+  HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h \
+  HardWare\BALANCE\MPU6050\mpu6050.h HardWare\BALANCE\DMP\dmpKey.h \
+  HardWare\BALANCE\DMP\dmpmap.h HardWare\PS2\pstwo.h User\config.h

@@ -7,8 +7,8 @@
 
 #define MAXQSIZE	10
 
-int QueueSize;
 LinkQueue *Uart_Queue;
+int QueueSize;
 
 //========================================================================
 //创建链表队列
@@ -32,6 +32,8 @@ void InQueue(u8 Data)		//头插法创建链表
 	}
 	else
 	{
+		//printf("Debug: Adding queue data\r\n");
+		//printf("%u", Data);
 		QNode* NewNode = (QNode*)malloc(sizeof(QNode));
 		NewNode->data = Data;
 		NewNode->next = Uart_Queue->Hand;
