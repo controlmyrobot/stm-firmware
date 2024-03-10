@@ -1,6 +1,6 @@
 Dependencies for Project 'Moebius', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (.\User\Moebius.c)(0x64092CA9)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/moebius.o -MD)
+F (.\User\Moebius.c)(0x64EB3370)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/moebius.o -MD)
 I (Public\sys.h)(0x63F51477)
 I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
 I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
@@ -54,8 +54,8 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\User\config.h)(0x63F51477)()
+I (User\config.h)(0x64EB33E0)
+F (.\User\config.h)(0x64EB33E0)()
 F (.\Libraries\CMSIS\startup_stm32f10x_hd.s)(0x63F51473)(--cpu Cortex-M3 -g --pd "__MICROLIB SETA 1" --diag_suppress=A1950W-IC:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include--pd "__UVISION_VERSION SETA 538"--pd "STM32F10X_HD SETA 1"--list ..\obj\startup_stm32f10x_hd.lst--xref -o .\obj\startup_stm32f10x_hd.o--depend .\obj\startup_stm32f10x_hd.d)
 F (.\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c)(0x63F51474)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/misc.o -MD)
 I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
@@ -320,116 +320,6 @@ I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
 I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
 F (.\Libraries\CMSIS\core_cm3.c)(0x63F526AB)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/core_cm3.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-F (.\HardWare\LED\LED.C)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/led.o -MD)
-I (HardWare\LED\led.h)(0x63F51473)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\KEY\key.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/key.o -MD)
-I (HardWare\KEY\key.h)(0x63F51473)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
 F (.\HardWare\MOTOR\motor.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/motor.o -MD)
 I (HardWare\MOTOR\motor.h)(0x63F51473)
 I (Public\sys.h)(0x63F51477)
@@ -484,7 +374,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 F (.\HardWare\ENCODER\encoder.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/encoder.o -MD)
 I (HardWare\ENCODER\encoder.h)(0x63F51473)
 I (Public\sys.h)(0x63F51477)
@@ -539,118 +429,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\BlueTooth\BlueTooth.c)(0x64EB53A6)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/bluetooth.o -MD)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\OLED\oled.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/oled.o -MD)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-I (HardWare\OLED\oledfont.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
 F (.\HardWare\ADC\adc.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/adc.o -MD)
 I (HardWare\ADC\adc.h)(0x63F51473)
 I (Public\sys.h)(0x63F51477)
@@ -705,227 +484,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\IIC\IOI2C.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/ioi2c.o -MD)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (Public\sys.h)(0x63F51477)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\BALANCE\MPU6050\MPU6050.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/mpu6050.o -MD)
-I (HardWare\BALANCE\MPU6050\MPU6050.h)(0x63F51473)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\BALANCE\DMP\inv_mpu.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/inv_mpu.o -MD)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/inv_mpu_dmp_motion_driver.o -MD)
-I (Public\sys.h)(0x63F51477)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
-I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
-I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
-I (User\stm32f10x_conf.h)(0x63F51477)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
-I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
-I (Public\Systick.h)(0x63F51477)
-I (User\define.h)(0x63F51477)
-I (Public\usart.h)(0x63F51477)
-I (HardWare\LED\LED.h)(0x63F51473)
-I (HardWare\KEY\KEY.h)(0x63F51473)
-I (HardWare\OLED\oled.h)(0x63F51473)
-I (HardWare\BALANCE\show\show.h)(0x63F51473)
-I (HardWare\MOTOR\motor.h)(0x63F51473)
-I (HardWare\IIC\ioi2c.h)(0x63F51473)
-I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
-I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
-I (HardWare\EXTI\exti.h)(0x63F51473)
-I (HardWare\ENCODER\encoder.h)(0x63F51473)
-I (HardWare\ADC\adc.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
-I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
-I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 F (.\HardWare\BALANCE\filter\filter.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/filter.o -MD)
 I (HardWare\BALANCE\filter\filter.h)(0x63F51473)
 F (.\HardWare\BALANCE\show\show.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/show.o -MD)
@@ -982,8 +541,8 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\HardWare\BALANCE\CONTROL\control.c)(0x64EBEBC2)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/control.o -MD)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\BALANCE\CONTROL\control.c)(0x64EB3462)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/control.o -MD)
 I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
 I (Public\sys.h)(0x63F51477)
 I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
@@ -1037,7 +596,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 I (HardWare\BALANCE\filter\filter.h)(0x63F51473)
 F (.\HardWare\EXTI\exti.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/exti.o -MD)
 I (HardWare\EXTI\exti.h)(0x63F51473)
@@ -1093,7 +652,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 F (.\HardWare\PS2\pstwo.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/pstwo.o -MD)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
 I (Public\sys.h)(0x63F51477)
@@ -1148,7 +707,392 @@ I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
 I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\BlueTooth\BlueTooth.c)(0x64EB2DF1)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/bluetooth.o -MD)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\LED\LED.C)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/led.o -MD)
+I (HardWare\LED\led.h)(0x63F51473)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\KEY\key.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/key.o -MD)
+I (HardWare\KEY\key.h)(0x63F51473)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\IIC\IOI2C.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/ioi2c.o -MD)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (Public\sys.h)(0x63F51477)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\BALANCE\DMP\inv_mpu.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/inv_mpu.o -MD)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/inv_mpu_dmp_motion_driver.o -MD)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
+F (.\HardWare\BALANCE\MPU6050\MPU6050.c)(0x63F51473)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/mpu6050.o -MD)
+I (HardWare\BALANCE\MPU6050\MPU6050.h)(0x63F51473)
+I (Public\sys.h)(0x63F51477)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
+I (Libraries\CMSIS\core_cm3.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63882CE8)
+I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD5D3E)
+I (User\stm32f10x_conf.h)(0x63F51477)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x63F51473)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x63F51474)
+I (Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x63F51473)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (Public\Systick.h)(0x63F51477)
+I (User\define.h)(0x63F51477)
+I (Public\usart.h)(0x63F51477)
+I (HardWare\LED\LED.h)(0x63F51473)
+I (HardWare\KEY\KEY.h)(0x63F51473)
+I (HardWare\OLED\oled.h)(0x63F51473)
+I (HardWare\BALANCE\show\show.h)(0x63F51473)
+I (HardWare\MOTOR\motor.h)(0x63F51473)
+I (HardWare\IIC\ioi2c.h)(0x63F51473)
+I (HardWare\BlueTooth\BlueTooth.h)(0x63F53150)
+I (HardWare\BALANCE\CONTROL\control.h)(0x63F51473)
+I (HardWare\EXTI\exti.h)(0x63F51473)
+I (HardWare\ENCODER\encoder.h)(0x63F51473)
+I (HardWare\ADC\adc.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
+I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
+I (HardWare\PS2\pstwo.h)(0x63F51473)
+I (User\config.h)(0x64EB33E0)
 F (.\Public\Sys.c)(0x63F51477)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/sys.o -MD)
 I (Public\Sys.h)(0x63F51477)
 I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
@@ -1203,7 +1147,7 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 F (.\Public\Systick.c)(0x63F51477)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/systick.o -MD)
 I (Public\Systick.h)(0x63F51477)
 I (Public\Sys.h)(0x63F51477)
@@ -1258,8 +1202,8 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
-F (.\Public\USART.c)(0x63F54E08)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/usart.o -MD)
+I (User\config.h)(0x64EB33E0)
+F (.\Public\USART.c)(0x64EB27E7)(-xc -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -w -I ./User -I ./Libraries/STM32F10x_StdPeriph_Driver/src -I ./Libraries/STM32F10x_StdPeriph_Driver/inc -I ./Libraries/CMSIS -I ./Public -I ./HardWare/KEY -I ./HardWare/LED -I ./HardWare/BlueTooth -I ./HardWare/OLED -I ./HardWare/ENCODER -I ./HardWare/ADC -I ./HardWare/BALANCE/CONTROL -I ./HardWare/BALANCE/DataScope_DP -I ./HardWare/BALANCE/DMP -I ./HardWare/BALANCE/filter -I ./HardWare/BALANCE/MPU6050 -I ./HardWare/BALANCE/show -I ./HardWare/IIC -I ./HardWare/EXTI -I ./HardWare/MOTOR -I ./HardWare/PS2-IC:/Users/dtbak/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ./obj/usart.o -MD)
 I (Public\usart.h)(0x63F51477)
 I (Public\Sys.h)(0x63F51477)
 I (C:\Users\dtbak\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AD5D3E)
@@ -1313,6 +1257,6 @@ I (HardWare\BALANCE\MPU6050\mpu6050.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpKey.h)(0x63F51473)
 I (HardWare\BALANCE\DMP\dmpmap.h)(0x63F51473)
 I (HardWare\PS2\pstwo.h)(0x63F51473)
-I (User\config.h)(0x63F51477)
+I (User\config.h)(0x64EB33E0)
 F (.\User\define.h)(0x63F51477)()
 F (.\Public\Sys.h)(0x63F51477)()

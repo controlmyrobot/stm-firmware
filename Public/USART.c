@@ -71,7 +71,7 @@ void USART1_IRQHandler(void)									//串口1中断服务程序
 		Usart1_Buf = USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
 		USART_SendData(USART1,Usart1_Buf); //Usart1_Buf
 		InQueue(Usart1_Buf);
-		//USART_SendData(USART1,InspectQueue() ? 'Y' : 'N');
+		USART_SendData(USART1,InspectQueue() ? 'Y' : 'N');
 		EXTI15_10_IRQHandler();
 		while(USART_GetFlagStatus(USART1,USART_FLAG_TC) != SET);
 	} 

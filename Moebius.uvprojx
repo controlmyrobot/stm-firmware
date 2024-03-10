@@ -471,16 +471,6 @@
           <GroupName>HardWare</GroupName>
           <Files>
             <File>
-              <FileName>LED.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\LED\LED.C</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\KEY\key.c</FilePath>
-            </File>
-            <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HardWare\MOTOR\motor.c</FilePath>
@@ -491,39 +481,9 @@
               <FilePath>.\HardWare\ENCODER\encoder.c</FilePath>
             </File>
             <File>
-              <FileName>BlueTooth.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\BlueTooth\BlueTooth.c</FilePath>
-            </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\OLED\oled.c</FilePath>
-            </File>
-            <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HardWare\ADC\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>IOI2C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\IIC\IOI2C.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\BALANCE\MPU6050\MPU6050.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\BALANCE\DMP\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
             </File>
             <File>
               <FileName>filter.c</FileName>
@@ -549,6 +509,41 @@
               <FileName>pstwo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HardWare\PS2\pstwo.c</FilePath>
+            </File>
+            <File>
+              <FileName>BlueTooth.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\BlueTooth\BlueTooth.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\LED\LED.C</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>IOI2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\IIC\IOI2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\BALANCE\DMP\inv_mpu.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\BALANCE\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\BALANCE\MPU6050\MPU6050.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -72,7 +72,6 @@ u8 InspectQueue()
 		return 1;
 }
 
-
 //========================================================================
 //输出队列
 void PrintQueue()
@@ -93,7 +92,12 @@ void USART3_Send_Data(u8 Dat)
 	while(USART_GetFlagStatus(USART3, USART_FLAG_TC) != SET);      
 	USART_ClearFlag(USART3,USART_FLAG_TC);
 }
-
+/*******************************************************************************
+* 函 数 名         : USART1_Init
+* 函数功能		   : USART1初始化函数
+* 输    入         : bound:波特率
+* 输    出         : 无
+*******************************************************************************/ 
 void USART3_Init(u32 bound)
 {
 	//GPIO端口设置
@@ -105,13 +109,14 @@ void USART3_Init(u32 bound)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE);
 	GPIO_PinRemapConfig(GPIO_PartialRemap_USART3, ENABLE); 				//Uart3重映射
  
+	/*  配置GPIO的模式和IO口 */
 	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//串口输出PA2
 	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;			//复用推挽输出
-	GPIO_Init(GPIOC,&GPIO_InitStructure);					
+	GPIO_Init(GPIOC,&GPIO_InitStructure);					/* 初始化串口输入IO */
 	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_11;//RX			//串口输入PA3
 	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IN_FLOATING;		//模拟输入
-	GPIO_Init(GPIOC,&GPIO_InitStructure);					
+	GPIO_Init(GPIOC,&GPIO_InitStructure);					/* 初始化GPIO */
 	
 	//USART1 初始化设置
 	USART_InitStructure.USART_BaudRate = bound;						//波特率设置
@@ -138,13 +143,19 @@ void USART3_Init(u32 bound)
 	InitQueue();
 }
 
+/*******************************************************************************
+* 函 数 名         : USART1_IRQHandler
+* 函数功能		   : USART1中断函数
+* 输    入         : 无
+* 输    出         : 无
+*******************************************************************************/ 
 void USART3_IRQHandler(void)									//串口1中断服务程序
 {
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)		//接收中断
 	{
 		InQueue(USART_ReceiveData(USART3));
 	} 
-} 
+} 	
 
  
 
