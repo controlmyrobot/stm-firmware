@@ -3,26 +3,26 @@
 #include "config.h"
 
   /**************************************************************************
-×÷Õß£ºÄ«±ÈË¹¿Æ¼¼
-ÎÒµÄÌÔ±¦Ð¡µê£ºhttps://moebius.taobao.com/
+ï¿½ï¿½ï¿½ß£ï¿½Ä«ï¿½ï¿½Ë¹ï¿½Æ¼ï¿½
+ï¿½Òµï¿½ï¿½Ô±ï¿½Ð¡ï¿½ê£ºhttps://moebius.taobao.com/
 **************************************************************************/
 u8 Target_Z;
-u8 Flag_Target,Flag_Change;				//Ïà¹Ø±êÖ¾Î»
+u8 Flag_Target,Flag_Change;				//ï¿½ï¿½Ø±ï¿½Ö¾Î»
 u8 PS2_BLU;
-u8 temp1;								//ÁÙÊ±±äÁ¿
-float Voltage_Count,Voltage_All;		//µçÑ¹²ÉÑùÏà¹Ø±äÁ¿
-float Gyro_K=-0.6;						//ÍÓÂÝÒÇ±ÈÀýÏµÊý
+u8 temp1;								//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+float Voltage_Count,Voltage_All;		//ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½
+float Gyro_K=-0.6;						//ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½Ïµï¿½ï¿½
 int Gyro_Bias;
 int j;
 unsigned int TimClk = 200;
-int speedMultiplier = 1;
+int speedMultiplier = 2;
 int speedMultiplierLeftRight = 1;
 #define a_PARAMETER          (0.311f)               
 #define b_PARAMETER          (0.3075f)         
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºÐ¡³µÔË¶¯ÊýÑ§Ä£ÐÍ
-Èë¿Ú²ÎÊý£ºX Y Z ÈýÖáËÙ¶È»òÕßÎ»ÖÃ
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½Ð¡ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Ñ§Ä£ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½X Y Z ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È»ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void Kinematic_Analysis(float Vx,float Vy,float Vz)
 {
@@ -38,15 +38,15 @@ void Kinematic_Analysis(float Vx,float Vy,float Vz)
 	if(temp > 1 || temp < -1)
 		Vz += Gyro_K * temp;
 #endif
-	Target_A   = -Vx+Vy+Vz*(a_PARAMETER+b_PARAMETER);
-	Target_B   = +Vx+Vy-Vz*(a_PARAMETER+b_PARAMETER);
-	Target_C   = -Vx+Vy-Vz*(a_PARAMETER+b_PARAMETER);
-	Target_D   = +Vx+Vy+Vz*(a_PARAMETER+b_PARAMETER);
+	Target_A   = -Vx+Vy+Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_B   = +Vx+Vy-Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_C   = -Vx+Vy-Vz;//*(a_PARAMETER+b_PARAMETER);
+	Target_D   = +Vx+Vy+Vz;//*(a_PARAMETER+b_PARAMETER);
 }
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºËùÓÐµÄ¿ØÖÆ´úÂë¶¼ÔÚÕâÀïÃæ
-         5ms¶¨Ê±ÖÐ¶ÏÓÉMPU6050µÄINTÒý½Å´¥·¢
-         ÑÏ¸ñ±£Ö¤²ÉÑùºÍÊý¾Ý´¦ÀíµÄÊ±¼äÍ¬²½				 
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ÐµÄ¿ï¿½ï¿½Æ´ï¿½ï¿½ë¶¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         5msï¿½ï¿½Ê±ï¿½Ð¶ï¿½ï¿½ï¿½MPU6050ï¿½ï¿½INTï¿½ï¿½ï¿½Å´ï¿½ï¿½ï¿½
+         ï¿½Ï¸ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í¬ï¿½ï¿½				 
 **************************************************************************/
 int EXTI15_10_IRQHandler(void) 
 {    
@@ -55,7 +55,7 @@ int EXTI15_10_IRQHandler(void)
 	int Yuzhi=20;
 	if(INT==0)		
 	{     
-		EXTI->PR=1<<15;                                                      //Çå³ýLINE5ÉÏµÄÖÐ¶Ï±êÖ¾Î»
+		EXTI->PR=1<<15;                                                      //ï¿½ï¿½ï¿½LINE5ï¿½Ïµï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î»
 		if(TimClk)
 		{
 			TimClk--;
@@ -68,77 +68,52 @@ int EXTI15_10_IRQHandler(void)
 		Flag_Target=!Flag_Target;
 		if(delay_flag==1)
 		{
-			if(++delay_50==10)	 delay_50=0,delay_flag=0;                     //¸øÖ÷º¯ÊýÌá¹©50msµÄ¾«×¼ÑÓÊ±
+			if(++delay_50==10)	 delay_50=0,delay_flag=0;                     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©50msï¿½Ä¾ï¿½×¼ï¿½ï¿½Ê±
 		}
-																					//===10ms¿ØÖÆÒ»´Î£¬ÎªÁË±£Ö¤M·¨²âËÙµÄÊ±¼ä»ù×¼£¬Ê×ÏÈ¶ÁÈ¡±àÂëÆ÷Êý¾Ý
+																					//===10msï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½Îªï¿½Ë±ï¿½Ö¤Mï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Ê±ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½È¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #if   ENCODER_DIRECTION
-		Encoder_A	=	-Read_Encoder(2);                                          //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_A	+=	Encoder_A;                                                 //===»ý·ÖµÃµ½Î»ÖÃ 
-		Encoder_B	=	+Read_Encoder(3);                                          //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_B	+=	Encoder_B;                                                 //===»ý·ÖµÃµ½Î»ÖÃ 
-		Encoder_C	=	+Read_Encoder(4);                                         //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_C	+=	Encoder_C;                                                 //===»ý·ÖµÃµ½Î»ÖÃ  
-		Encoder_D	=	-Read_Encoder(5);                                       //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_D	+=	Encoder_D;                                                 //===»ý·ÖµÃµ½Î»ÖÃ    
+		Encoder_A	=	-Read_Encoder(2);                                          //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_A	+=	Encoder_A;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½ 
+		Encoder_B	=	+Read_Encoder(3);                                          //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_B	+=	Encoder_B;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½ 
+		Encoder_C	=	+Read_Encoder(4);                                         //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_C	+=	Encoder_C;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½  
+		Encoder_D	=	-Read_Encoder(5);                                       //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_D	+=	Encoder_D;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½    
 #else
-		Encoder_A	=	+Read_Encoder(2);                                          //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_A	+=	Encoder_A;                                                 //===»ý·ÖµÃµ½Î»ÖÃ 
-		Encoder_B	=	-Read_Encoder(3);                                          //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_B	+=	Encoder_B;                                                 //===»ý·ÖµÃµ½Î»ÖÃ 
-		Encoder_C	=	-Read_Encoder(4);                                         //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_C	+=	Encoder_C;                                                 //===»ý·ÖµÃµ½Î»ÖÃ  
-		Encoder_D	=	+Read_Encoder(5);                                       //===¶ÁÈ¡±àÂëÆ÷µÄÖµ
-		Position_D	+=	Encoder_D;                                                 //===»ý·ÖµÃµ½Î»ÖÃ    
+		Encoder_A	=	+Read_Encoder(2);                                          //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_A	+=	Encoder_A;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½ 
+		Encoder_B	=	-Read_Encoder(3);                                          //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_B	+=	Encoder_B;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½ 
+		Encoder_C	=	-Read_Encoder(4);                                         //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_C	+=	Encoder_C;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½  
+		Encoder_D	=	+Read_Encoder(5);                                       //===ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+		Position_D	+=	Encoder_D;                                                 //===ï¿½ï¿½ï¿½ÖµÃµï¿½Î»ï¿½ï¿½    
 #endif
 
-		Read_DMP();                                                            //===¸üÐÂ×ËÌ¬	
-		Voltage_All+=Get_battery_volt();                                       //¶à´Î²ÉÑùÀÛ»ý
-		if(++Voltage_Count==100) Voltage=Voltage_All/100,Voltage_All=0,Voltage_Count=0;//ÇóÆ½¾ùÖµ »ñÈ¡µç³ØµçÑ¹	       
+		Read_DMP();                                                            //===ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¬	
+		Voltage_All+=Get_battery_volt();                                       //ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½Û»ï¿½
+		if(++Voltage_Count==100) Voltage=Voltage_All/100,Voltage_All=0,Voltage_Count=0;//ï¿½ï¿½Æ½ï¿½ï¿½Öµ ï¿½ï¿½È¡ï¿½ï¿½Øµï¿½Ñ¹	       
 
 #if		ENCODER_ENABLE
-		Motor_A=Incremental_PI_A(Encoder_A,Target_A);                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úA×îÖÕPWM
-		Motor_B=Incremental_PI_B(Encoder_B,Target_B);                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úB×îÖÕPWM
-		Motor_C=Incremental_PI_C(Encoder_C,Target_C);                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úC×îÖÕPWM
-		Motor_D=Incremental_PI_D(Encoder_D,Target_D);                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úC×îÖÕPWM
+		Motor_A=Incremental_PI_A(Encoder_A,Target_A);                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½PWM
+		Motor_B=Incremental_PI_B(Encoder_B,Target_B);                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½PWM
+		Motor_C=Incremental_PI_C(Encoder_C,Target_C);                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½PWM
+		Motor_D=Incremental_PI_D(Encoder_D,Target_D);                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½PWM
 #else
-		Motor_A = Target_A;                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úA×îÖÕPWM
-		Motor_B = Target_B;                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úB×îÖÕPWM
-		Motor_C = Target_C;                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úC×îÖÕPWM
-		Motor_D = Target_D;                         //===ËÙ¶È±Õ»·¿ØÖÆ¼ÆËãµç»úC×îÖÕPWM
+		Motor_A = Target_A;                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½PWM
+		Motor_B = Target_B;                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½PWM
+		Motor_C = Target_C;                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½PWM
+		Motor_D = Target_D;                         //===ï¿½Ù¶È±Õ»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½PWM
 #endif
-		//if(InspectQueue())
-		//{
-			//Flag_Direction=OutQueue();
-		//}
-		/*else
-		{
-			if((PS2_LX > 250 && PS2_LY > 250 &&PS2_RX > 250 &&PS2_RY > 250)
-				|| (PS2_LX == 0 && PS2_LY == 0 &&PS2_RX == 0 &&PS2_RY == 0))
-			{
-				PS2_LX = 128;
-				PS2_LY = 128;
-				PS2_RX = 128;
-				PS2_RY = 128;
-			}
-			LX=PS2_LX-128;
-			LY=PS2_LY-128; 
-			RX=PS2_RX-128;
-			RY=PS2_RY-128;		
-			if(LX>-Yuzhi&&LX<Yuzhi)LX=0;
-			if(LY>-Yuzhi&&LY<Yuzhi)LY=0;
-			if(RX>-Yuzhi&&RX<Yuzhi)RX=0;
-			if(RY>-Yuzhi&&RY<Yuzhi)RY=0;
-			
-			Move_X=LX*RC_Velocity/(400 + RY);
-			Move_Y=-LY*RC_Velocity/(400 + RY);	
-			if(RX != 0)	Gyro_Bias = Yaw;
-			Move_Z=-RX*RC_Velocity/(400 + RY);
-		}*/
-
-		Get_RC(0);
 		
-		Xianfu_Pwm(6900);                     //===PWMÏÞ·ù
-		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===¸³Öµ¸øPWM¼Ä´æÆ÷ 
+		
+
+		// this use to take the WASD command and map it to movement, we're going to avoid that 
+		// Get_RC(0);
+		
+		Xianfu_Pwm(6900);                     //===PWMï¿½Þ·ï¿½
+		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===ï¿½ï¿½Öµï¿½ï¿½PWMï¿½Ä´ï¿½ï¿½ï¿½ 
 		
 		//USART_SendData(USART1,':');
 	//		USART_SendData(USART1,Motor_A);
@@ -152,9 +127,9 @@ int EXTI15_10_IRQHandler(void)
 
 
 /**************************************************************************
-º¯Êý¹¦ÄÜ£º¸³Öµ¸øPWM¼Ä´æÆ÷
-Èë¿Ú²ÎÊý£ºPWM
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½Öµï¿½ï¿½PWMï¿½Ä´ï¿½ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½PWM
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void Set_Pwm(int motor_a,int motor_b,int motor_c,int motor_d)
 {
@@ -176,9 +151,9 @@ void Set_Pwm(int motor_a,int motor_b,int motor_c,int motor_d)
 }
 
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºÏÞÖÆPWM¸³Öµ 
-Èë¿Ú²ÎÊý£º·ùÖµ
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½PWMï¿½ï¿½Öµ 
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void Xianfu_Pwm(int amplitude)
 {	
@@ -193,14 +168,14 @@ void Xianfu_Pwm(int amplitude)
 }
 
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºÒì³£¹Ø±Õµç»ú
-Èë¿Ú²ÎÊý£ºµçÑ¹
-·µ»Ø  Öµ£º1£ºÒì³£  0£ºÕý³£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ì³£ï¿½Ø±Õµï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½1ï¿½ï¿½ï¿½ì³£  0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 u8 Turn_Off( int voltage)
 {
 	u8 temp;
-	if(voltage<2000||EN==0)//µç³ØµçÑ¹µÍÓÚ22.2V¹Ø±Õµç»ú
+	if(voltage<2000||EN==0)//ï¿½ï¿½Øµï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½22.2Vï¿½Ø±Õµï¿½ï¿½
 	{	                                                
 		temp=1;      
 		PWMA=0;
@@ -214,9 +189,9 @@ u8 Turn_Off( int voltage)
 }
 
 /**************************************************************************
-º¯Êý¹¦ÄÜ£º¾ø¶ÔÖµº¯Êý
-Èë¿Ú²ÎÊý£ºlong int
-·µ»Ø  Öµ£ºunsigned int
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½long int
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½unsigned int
 **************************************************************************/
 u32 myabs(long int a)
 { 		   
@@ -226,66 +201,66 @@ u32 myabs(long int a)
 	return temp;
 }
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºÔöÁ¿PI¿ØÖÆÆ÷
-Èë¿Ú²ÎÊý£º±àÂëÆ÷²âÁ¿Öµ£¬Ä¿±êËÙ¶È
-·µ»Ø  Öµ£ºµç»úPWM
-¸ù¾ÝÔöÁ¿Ê½ÀëÉ¢PID¹«Ê½ 
-pwm+=Kp[e£¨k£©-e(k-1)]+Ki*e(k)+Kd[e(k)-2e(k-1)+e(k-2)]
-e(k)´ú±í±¾´ÎÆ«²î 
-e(k-1)´ú±íÉÏÒ»´ÎµÄÆ«²î  ÒÔ´ËÀàÍÆ 
-pwm´ú±íÔöÁ¿Êä³ö
-ÔÚÎÒÃÇµÄËÙ¶È¿ØÖÆ±Õ»·ÏµÍ³ÀïÃæ£¬Ö»Ê¹ÓÃPI¿ØÖÆ
-pwm+=Kp[e£¨k£©-e(k-1)]+Ki*e(k)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ù¶ï¿½
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½ï¿½PWM
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½É¢PIDï¿½ï¿½Ê½ 
+pwm+=Kp[eï¿½ï¿½kï¿½ï¿½-e(k-1)]+Ki*e(k)+Kd[e(k)-2e(k-1)+e(k-2)]
+e(k)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ 
+e(k-1)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Îµï¿½Æ«ï¿½ï¿½  ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+pwmï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½Ù¶È¿ï¿½ï¿½Æ±Õ»ï¿½ÏµÍ³ï¿½ï¿½ï¿½æ£¬Ö»Ê¹ï¿½ï¿½PIï¿½ï¿½ï¿½ï¿½
+pwm+=Kp[eï¿½ï¿½kï¿½ï¿½-e(k-1)]+Ki*e(k)
 **************************************************************************/
 int Incremental_PI_A (int Encoder,int Target)
 { 	
 	 static int Bias,Pwm,Last_bias;
-	 Bias=Encoder-Target;                //¼ÆËãÆ«²î
-	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ÔöÁ¿Ê½PI¿ØÖÆÆ÷
+	 Bias=Encoder-Target;                //ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
+	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ï¿½ï¿½ï¿½ï¿½Ê½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 if(Pwm>7200)	Pwm=7200;
 	 if(Pwm<-7200)	Pwm=-7200;
-	 Last_bias=Bias;	                   //±£´æÉÏÒ»´ÎÆ«²î 
-	 return Pwm;                         //ÔöÁ¿Êä³ö
+	 Last_bias=Bias;	                   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Æ«ï¿½ï¿½ 
+	 return Pwm;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 int Incremental_PI_B (int Encoder,int Target)
 { 	
 	 static int Bias,Pwm,Last_bias;
-	 Bias=Encoder-Target;                //¼ÆËãÆ«²î
-	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ÔöÁ¿Ê½PI¿ØÖÆÆ÷
+	 Bias=Encoder-Target;                //ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
+	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ï¿½ï¿½ï¿½ï¿½Ê½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 if(Pwm>7200)	Pwm=7200;
 	 if(Pwm<-7200)	Pwm=-7200;
-	 Last_bias=Bias;	                   //±£´æÉÏÒ»´ÎÆ«²î 
-	 return Pwm;                         //ÔöÁ¿Êä³ö
+	 Last_bias=Bias;	                   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Æ«ï¿½ï¿½ 
+	 return Pwm;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 int Incremental_PI_C (int Encoder,int Target)
 { 	
 	 static int Bias,Pwm,Last_bias;
-	 Bias=Encoder-Target;                                  //¼ÆËãÆ«²î
-	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ÔöÁ¿Ê½PI¿ØÖÆÆ÷
+	 Bias=Encoder-Target;                                  //ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
+	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ï¿½ï¿½ï¿½ï¿½Ê½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 if(Pwm>7200)	Pwm=7200;
 	 if(Pwm<-7200)	Pwm=-7200;
-	 Last_bias=Bias;	                   //±£´æÉÏÒ»´ÎÆ«²î 
-	 return Pwm;                         //ÔöÁ¿Êä³ö
+	 Last_bias=Bias;	                   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Æ«ï¿½ï¿½ 
+	 return Pwm;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 int Incremental_PI_D (int Encoder,int Target)
 { 	
 	 static int Bias,Pwm,Last_bias;
-	 Bias=Encoder-Target;                                  //¼ÆËãÆ«²î
-	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ÔöÁ¿Ê½PI¿ØÖÆÆ÷
+	 Bias=Encoder-Target;                                  //ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
+	 Pwm+=Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //ï¿½ï¿½ï¿½ï¿½Ê½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 if(Pwm>7200)	Pwm=7200;
 	 if(Pwm<-7200)	Pwm=-7200;
-	 Last_bias=Bias;	                   //±£´æÉÏÒ»´ÎÆ«²î 
-	 return Pwm;                         //ÔöÁ¿Êä³ö
+	 Last_bias=Bias;	                   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Æ«ï¿½ï¿½ 
+	 return Pwm;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 /**************************************************************************
-º¯Êý¹¦ÄÜ£ºÍ¨¹ý´®¿ÚÖ¸Áî¶ÔÐ¡³µ½øÐÐÒ£¿Ø
-Èë¿Ú²ÎÊý£º´®¿ÚÖ¸Áî
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void Get_RC(u8 mode)
 {
-	float step=0.25;  //ÉèÖÃËÙ¶È¿ØÖÆ²½½øÖµ¡£
-	float stepSide=0.04;  //ÉèÖÃËÙ¶È¿ØÖÆ²½½øÖµ¡£
+	float step=0.25;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È¿ï¿½ï¿½Æ²ï¿½ï¿½ï¿½Öµï¿½ï¿½
+	float stepSide=0.04;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È¿ï¿½ï¿½Æ²ï¿½ï¿½ï¿½Öµï¿½ï¿½
 	u8 Flag_Move=1;
 	
 
@@ -293,20 +268,24 @@ void Get_RC(u8 mode)
 	switch(Flag_Direction) 
 	{
 		case '1':	speedMultiplier = 1;	speedMultiplierLeftRight = 1;	break;
-		case '2':	speedMultiplier = 2;	speedMultiplierLeftRight = 2;	break;
+		case '2':	speedMultiplier = 2;	speedMultiplierLeftRight = 1;	break;
 		case '3':	speedMultiplier = 3;	speedMultiplierLeftRight = 2;	break;
 		case '4':	speedMultiplier = 4;	speedMultiplierLeftRight = 3;	break;
-		case '5':	speedMultiplier = 5;	speedMultiplierLeftRight = 3;	break;
-		case '6':	speedMultiplier = 6;	speedMultiplierLeftRight = 3;	break;
+		case '5':	speedMultiplier = 6;	speedMultiplierLeftRight = 3;	break;
+		case '6':	speedMultiplier = 7;	speedMultiplierLeftRight = 3;	break;
+		case '7':	speedMultiplier = 9;	speedMultiplierLeftRight = 3;	break;
+		case '8':	speedMultiplier = 11;	speedMultiplierLeftRight = 3;	break;
+		case '9':	speedMultiplier = 13;	speedMultiplierLeftRight = 3;	break;
 	}
 	
 	// just hard coding this to 25 for now
 	RC_Velocity = 25;
 
-	float moveForwardSpeed = 4 * speedMultiplier;
-	float moveLeftRightSpeed = 1 * speedMultiplierLeftRight;
+	float moveForwardSpeed = 2 * speedMultiplier;
+	float moveZSpeed = 1 * speedMultiplier;
+	float moveLeftRightSpeed = 0.5 * speedMultiplierLeftRight;
 		
-	switch(Flag_Direction)   //·½Ïò¿ØÖÆ
+	switch(Flag_Direction)   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		
 		
@@ -315,17 +294,6 @@ void Get_RC(u8 mode)
 		case 'q':	RC_Velocity-=2;	Flag_Move=1;Flag_Direction = NULL; 								break;
 		// speed stop
 		case 'r':	Move_X = 0;		Move_Y=0;		Move_Z=0;					break;
-		
-		//case "N": serialMessage = 'w'; break;
-		//case "E": serialMessage = 'd'; break;
-		//case "S": serialMessage = 's'; break;
-		//case "W": serialMessage = 'a'; break;
-		//case "C": serialMessage = 'o'; break;
-		//case "NW": serialMessage = 'h'; break;
-		//case "NE": serialMessage = 'y'; break;
-		//case "SE": serialMessage = 'g'; break;
-		//case "SW": serialMessage = 't'; break;
-		//default: serialMessage = 'o'; break;
 
 		// Motors:
 		// [B] [A]
@@ -346,64 +314,31 @@ void Get_RC(u8 mode)
 		//wasd first:
 		case 'w':	Move_X=0;		Move_Y=moveForwardSpeed;	Move_Z=0;			Flag_Move=1;	break; // North 
 		case 's':	Move_X=0;		Move_Y=-moveForwardSpeed;	Move_Z=0;			Flag_Move=1;	break; // South
-		case 'a':	Move_X=0;	Move_Y=0;		Move_Z=moveForwardSpeed;		Flag_Move=1;	break; // rotate left
-		case 'd':	Move_X=0;	Move_Y=0;		Move_Z=-moveForwardSpeed;		Flag_Move=1;	break; // rotate right
+		case 'a':	Move_X=0;	Move_Y=0;		Move_Z=moveZSpeed;		Flag_Move=1;	break; // rotate left
+		case 'd':	Move_X=0;	Move_Y=0;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // rotate right
 		
-		case 'y':	Move_X=moveLeftRightSpeed;	Move_Y=moveForwardSpeed;		Move_Z=-moveForwardSpeed;		Flag_Move=1;	break; // NE
-		case 'g':	Move_X=moveLeftRightSpeed;	Move_Y=-moveForwardSpeed;		Move_Z=moveForwardSpeed;		Flag_Move=1;	break; // SE
-		case 't':	Move_X=-moveLeftRightSpeed;	Move_Y=-moveForwardSpeed;		Move_Z=-moveForwardSpeed;		Flag_Move=1;	break; // SW
-		case 'h':	Move_X=-moveLeftRightSpeed;	Move_Y=moveForwardSpeed;		Move_Z=moveForwardSpeed;		Flag_Move=1;	break; // NW
+		case 'y':	Move_X=0;	Move_Y=moveZSpeed;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // NE
+		case 'g':	Move_X=0;	Move_Y=-moveZSpeed;		Move_Z=-moveZSpeed;		Flag_Move=1;	break; // SE
+		case 't':	Move_X=0;	Move_Y=-moveZSpeed;		Move_Z=moveZSpeed;		Flag_Move=1;	break; // SW
+		case 'h':	Move_X=0;	Move_Y=moveZSpeed;	Move_Z=moveZSpeed;		Flag_Move=1;	break; // NW
 		
-		case 'z':	Move_X=-moveLeftRightSpeed * 2;	Move_Y=0;	Move_Z=0;			Flag_Move=1;	break; // slide left
-		case 'x':	Move_X=moveLeftRightSpeed * 2; Move_Y=0;  Move_Z=0;     Flag_Move=1;	break; // slide right
+		case 'c':	Move_X=-moveZSpeed * 2;	Move_Y=0;	Move_Z=0;			Flag_Move=1;	break; // slide left
+		case 'v':	Move_X=moveZSpeed * 2; Move_Y=0;  Move_Z=0;     Flag_Move=1;	break; // slide right
 		
-		
-		//wasd first:
-		//case 'w':	Move_X=0;		Move_Y+=step;				Flag_Move=1;	break;
-		//case 's':	Move_X=0;		Move_Y-=step;				Flag_Move=1;	break;
-		//case 'a':	Move_X-=stepSide;	Move_Y=0;					Flag_Move=1;	break;
-		//case 'd':	Move_X+=stepSide;	Move_Y=0;					Flag_Move=1;	break;
-		//case 't':	Move_X+=stepSide;	Move_Y-=stepSide;				Flag_Move=1;	break;
-		//case 'y':	Move_X+=stepSide;	Move_Y+=stepSide;				Flag_Move=1;	break;
-		//case 'g':	Move_X-=stepSide;	Move_Y-=stepSide;				Flag_Move=1;	break;
-		//case 'h':	Move_X-=stepSide;	Move_Y+=stepSide;				Flag_Move=1;	break; 
-		
-		//only moving single direction
-		//case 'w':	Move_Y+=step;				Flag_Move=1;	break;
-		//case 's':	Move_Y-=step;				Flag_Move=1;	break;
-		//case 'a':	Move_X-=stepSide;					Flag_Move=1;	break;
-		//case 'd':	Move_X+=stepSide;					Flag_Move=1;	break;
-		//case 't':	Move_X+=stepSide;	Move_Y-=step;				Flag_Move=1;	break;
-		//case 'y':	Move_X+=stepSide;	Move_Y+=step;				Flag_Move=1;	break;
-		//case 'g':	Move_X-=stepSide;	Move_Y-=step;				Flag_Move=1;	break;
-		//case 'h':	Move_X-=stepSide;	Move_Y+=step;				Flag_Move=1;	break; 
-		
-		//wasd first:
-		//case 'w':	Move_X=0;		Move_Y+=step;				Flag_Move=1;	break;
-		//case 's':	Move_X=0;		Move_Y-=step;				Flag_Move=1;	break;
-		//case 'a':	Move_X-=step;	Move_Y=0;					Flag_Move=1;	break;
-		//case 'd':	Move_X+=step;	Move_Y=0;					Flag_Move=1;	break;
-		//case 't':	Move_X+=step;	Move_Y-=step;				Flag_Move=1;	break;
-		//case 'y':	Move_X+=step;	Move_Y+=step;				Flag_Move=1;	break;
-		//case 'g':	Move_X-=step;	Move_Y-=step;				Flag_Move=1;	break;
-		//case 'h':	Move_X-=step;	Move_Y+=step;				Flag_Move=1;	break; 
-		
-		//case 'u':	Move_Z-=step;		Gyro_Bias = Yaw;	break;
-		//case 'i':	Move_Z+=step;		Gyro_Bias = Yaw;	break;
 
-		default: Flag_Move=0;        Move_X=Move_X/1.04;	Move_Y=Move_Y/1.04;	  break;	 
+		default: Flag_Move=0;        Move_X=Move_X/1.04;	Move_Y=Move_Y/1.04;	Move_Z=Move_Z/1.04;	  break;	 
 	}
 	
 	
 	if(RC_Velocity > 25)RC_Velocity = 25;
 	if(RC_Velocity < 1)RC_Velocity = 1;
-	if(Flag_Move==1)		Flag_Left=0,Flag_Right=0;//Move_Z=0;
-	if(Move_X<-RC_Velocity)	Move_X=-RC_Velocity;	   //ËÙ¶È¿ØÖÆÏÞ·ù
+	//if(Flag_Move==1)		Flag_Left=0,Flag_Right=0;//Move_Z=0;
+	if(Move_X<-RC_Velocity)	Move_X=-RC_Velocity;	   //ï¿½Ù¶È¿ï¿½ï¿½ï¿½ï¿½Þ·ï¿½
 	if(Move_X>RC_Velocity)	Move_X=RC_Velocity;	     
 	if(Move_Y<-RC_Velocity)	Move_Y=-RC_Velocity;	
 	if(Move_Y>RC_Velocity)	Move_Y=RC_Velocity;	 
 	if(Move_Z<-RC_Velocity)	Move_Z=-RC_Velocity;	
 	if(Move_Z>RC_Velocity)	Move_Z=RC_Velocity;	 
 	
-	Kinematic_Analysis(Move_X,Move_Y,Move_Z);//µÃµ½¿ØÖÆÄ¿±êÖµ£¬½øÐÐÔË¶¯Ñ§·ÖÎö
+	Kinematic_Analysis(Move_X,Move_Y,Move_Z);//ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½
 }

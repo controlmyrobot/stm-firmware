@@ -1,15 +1,15 @@
-#include "KEY.h"
+#include "key.h"
 /**************************************************************************
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
-ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½ 
+º¯Êý¹¦ÄÜ£º°´¼ü³õÊ¼»¯
+Èë¿Ú²ÎÊý£ºÎÞ
+·µ»Ø  Öµ£ºÎÞ 
 **************************************************************************/
 void KEY_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	//Ê¹ï¿½ï¿½PAï¿½Ë¿ï¿½Ê±ï¿½ï¿½
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;				//ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	GPIO_Init(GPIOB, &GPIO_InitStructure);					//ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½GPIOB
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	//Ê¹ÄÜPA¶Ë¿ÚÊ±ÖÓ
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;				//¶Ë¿ÚÅäÖÃ
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;			//ÉÏÀ­ÊäÈë
+	GPIO_Init(GPIOB, &GPIO_InitStructure);					//¸ù¾ÝÉè¶¨²ÎÊý³õÊ¼»¯GPIOB
 }
 

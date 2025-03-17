@@ -1,20 +1,20 @@
-#include "LED.h"
+#include "led.h"
 /**************************************************************************
-ï¿½ï¿½ï¿½ß£ï¿½Ä«ï¿½ï¿½Ë¹ï¿½Æ¼ï¿½
-ï¿½Òµï¿½ï¿½Ô±ï¿½Ð¡ï¿½ê£ºhttps://moebius.taobao.com/
+×÷Õß£ºÄ«±ÈË¹¿Æ¼¼
+ÎÒµÄÌÔ±¦Ð¡µê£ºhttps://moebius.taobao.com/
 **************************************************************************/ 
 
 /**************************************************************************
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½LEDï¿½Ó¿Ú³ï¿½Ê¼ï¿½ï¿½
-ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
-ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
+º¯Êý¹¦ÄÜ£ºLED½Ó¿Ú³õÊ¼»¯
+Èë¿Ú²ÎÊý£ºÎÞ 
+·µ»Ø  Öµ£ºÎÞ
 **************************************************************************/
 void LED_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);	//Ê¹ï¿½Ü¶Ë¿ï¿½Ê±ï¿½ï¿½
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;				//ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);	//Ê¹ÄÜ¶Ë¿ÚÊ±ÖÓ
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;				//¶Ë¿ÚÅäÖÃ
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;		//ÍÆÍìÊä³ö
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		//50M
-	GPIO_Init(GPIOC, &GPIO_InitStructure);					//ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½GPIOB
+	GPIO_Init(GPIOC, &GPIO_InitStructure);					//¸ù¾ÝÉè¶¨²ÎÊý³õÊ¼»¯GPIOB
 }

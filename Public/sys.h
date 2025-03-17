@@ -11,13 +11,14 @@
 #include "stdio.h"
 #include "Systick.h"
 #include "define.h"
-#include "USART.h"
+#include "usart.h"
+#include "usartx.h"
 #include "LED.h"
 #include "KEY.h"
 #include "oled.h"
 #include "show.h"
 #include "motor.h"
-#include "IOI2C.h"
+#include "ioi2c.h"
 #include "BlueTooth.h"
 #include "control.h"
 #include "exti.h"
@@ -25,7 +26,7 @@
 #include "adc.h"
 #include "inv_mpu.h"
 #include "inv_mpu_dmp_motion_driver.h"
-#include "MPU6050.h"
+#include "mpu6050.h"
 #include "dmpKey.h"
 #include "dmpmap.h"
 #include "pstwo.h"
@@ -34,6 +35,7 @@
 extern int Encoder_A,Encoder_B,Encoder_C,Encoder_D;                    //���������������
 extern long int Motor_A,Motor_B,Motor_C,Motor_D;                   //���PWM����
 extern u8 Flag_Left,Flag_Right,Flag_sudu,Flag_Direction; //����ң����صı���
+extern u8 Incoming_Command;
 extern u8 Flag_Stop,Flag_Show;                               //ֹͣ��־λ�� ��ʾ��־λ Ĭ��ֹͣ ��ʾ��
 extern long int Target_A,Target_B,Target_C,Target_D,Rate_A,Rate_B,Rate_C,Rate_D;                      //���Ŀ���ٶ�
 extern  int Voltage,Voltage_Zheng,Voltage_Xiao;                //��ص�ѹ������صı���
@@ -56,6 +58,7 @@ extern int PS2_LX,PS2_LY,PS2_RX,PS2_RY,PS2_KEY;
 extern int Gryo_Z;
 extern u8 PS2_BLU;
 extern unsigned char Usart1_Buf;						//��λ��������Ϣ
+extern unsigned char Usart3_Buf;
 
 //Ex_NVIC_Configר�ö���
 #define GPIO_A 0

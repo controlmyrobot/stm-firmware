@@ -1,79 +1,163 @@
-
 #include "usartx.h"
 
-/**************************ÊµÏÖº¯Êý**********************************************
-*¹¦    ÄÜ:		usart4·¢ËÍÒ»¸ö×Ö½Ú
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½**********************************************
+*ï¿½ï¿½    ï¿½ï¿½:		usart4ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
 *********************************************************************************/
-void usart3_send(u8 data)
+void usart2_send(u8 data)
 {
-	USART3->DR = data;
-	while((USART3->SR&0x40)==0);	
+	USART2->DR = data;
+	while((USART2->SR&0x40)==0);	
 }
 /**************************************************************************
-º¯Êý¹¦ÄÜ£º´®¿Ú3³õÊ¼»¯
-Èë¿Ú²ÎÊý£ºpclk2:PCLK2 Ê±ÖÓÆµÂÊ(Mhz)    bound:²¨ÌØÂÊ
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½Ê¼ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½pclk2:PCLK2 Ê±ï¿½ï¿½Æµï¿½ï¿½(Mhz)    bound:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
-void uart3_init(u32 pclk2,u32 bound)
+void uart2_init(u32 pclk2,u32 bound)
 {  	 
 float temp;
 	u16 mantissa;
 	u16 fraction;	   
-	temp=(float)(pclk2*1000000)/(bound*16);//µÃµ½USARTDIV
-	mantissa=temp;				 //µÃµ½ÕûÊý²¿·Ö
-	fraction=(temp-mantissa)*16; //µÃµ½Ð¡Êý²¿·Ö	 
+	temp=(float)(pclk2*1000000)/(bound*16);//ï¿½Ãµï¿½USARTDIV
+	mantissa=temp;				 //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	fraction=(temp-mantissa)*16; //ï¿½Ãµï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	 
 	mantissa<<=4;
 	mantissa+=fraction; 
 
-	RCC->APB2ENR|=1<<0;    //¿ªÆô¸¨ÖúÊ±ÖÓ
-	RCC->APB2ENR|=1<<4;   //Ê¹ÄÜPORTC¿ÚÊ±ÖÓ  
-	RCC->APB1ENR|=1<<18;  //Ê¹ÄÜ´®¿ÚÊ±ÖÓ 
+	RCC->APB2ENR|=1<<0;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	RCC->APB2ENR|=1<<4;   //Ê¹ï¿½ï¿½PORTCï¿½ï¿½Ê±ï¿½ï¿½  
+	RCC->APB1ENR|=1<<18;  //Ê¹ï¿½Ü´ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 
 	GPIOC->CRH&=0XFFFF00FF; 
-	GPIOC->CRH|=0X00008B00;//IO×´Ì¬ÉèÖÃ
+	GPIOC->CRH|=0X00008B00;//IO×´Ì¬ï¿½ï¿½ï¿½ï¿½
 	GPIOC->ODR|=1<<10;	 
-	AFIO->MAPR|=1<<4;      //²¿·ÖÖØÓ³Éä
+	AFIO->MAPR|=1<<4;      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½
 
-	RCC->APB1RSTR|=1<<18;   //¸´Î»´®¿Ú1
-	RCC->APB1RSTR&=~(1<<18);//Í£Ö¹¸´Î»	   	   
-	//²¨ÌØÂÊÉèÖÃ
- 	USART3->BRR=mantissa; // ²¨ÌØÂÊÉèÖÃ	 
-	USART3->CR1|=0X200C;  //1Î»Í£Ö¹,ÎÞÐ£ÑéÎ».
-	//Ê¹ÄÜ½ÓÊÕÖÐ¶Ï
-	USART3->CR1|=1<<8;    //PEÖÐ¶ÏÊ¹ÄÜ
-	USART3->CR1|=1<<5;    //½ÓÊÕ»º³åÇø·Ç¿ÕÖÐ¶ÏÊ¹ÄÜ	    	
-	MY_NVIC_Init(0,1,USART3_IRQn,2);//×é2£¬×îµÍÓÅÏÈ¼¶ 
+	RCC->APB1RSTR|=1<<18;   //ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½1
+	RCC->APB1RSTR&=~(1<<18);//Í£Ö¹ï¿½ï¿½Î»	   	   
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ 	USART2->BRR=mantissa; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	 
+	USART2->CR1|=0X200C;  //1Î»Í£Ö¹,ï¿½ï¿½Ð£ï¿½ï¿½Î».
+	//Ê¹ï¿½Ü½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+	USART2->CR1|=1<<8;    //PEï¿½Ð¶ï¿½Ê¹ï¿½ï¿½
+	USART2->CR1|=1<<5;    //ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ð¶ï¿½Ê¹ï¿½ï¿½	    	
+	MY_NVIC_Init(0,1,USART2_IRQn,2);//ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ 
+	printf("USART2_Init done\r\n");
+}
+
+// Command definitions
+#define CMD_START_BYTE    0xFF
+#define CMD_JOYSTICK     0x01
+#define CMD_GET_VOLTAGE  0x02
+#define CMD_GET_GYRO     0x03
+#define CMD_GET_STATS    0x04
+
+// Response definitions
+#define RESP_START_BYTE  0xAA
+#define RESP_OK         0x00
+#define RESP_ERROR      0xFF
+
+// Buffer for receiving commands
+#define MAX_BUFFER_SIZE 16
+static uint8_t cmdBuffer[MAX_BUFFER_SIZE];
+
+// Function to send response packet
+void send_response(uint8_t cmd_type, uint8_t *data, uint8_t data_len) {
+    usart2_send(RESP_START_BYTE);
+    usart2_send(cmd_type);
+    usart2_send(data_len);
+    
+    for(uint8_t i = 0; i < data_len; i++) {
+        usart2_send(data[i]);
+    }
+}
+
+// Process received command
+void process_command(uint8_t *cmd_buffer, uint8_t len) {
+	printf("process_command\r\n");
+    switch(cmd_buffer[0]) {  // Command type
+        case CMD_JOYSTICK: {
+            // Expecting X, Y, Z values in next 3 bytes
+            if(len >= 4) {
+                uint8_t x = cmd_buffer[1];
+                uint8_t y = cmd_buffer[2];
+                uint8_t z = cmd_buffer[3];
+                // TODO: Handle joystick values
+                uint8_t resp = RESP_OK;
+                send_response(CMD_JOYSTICK, &resp, 1);
+            }
+            break;
+        }
+        
+        case CMD_GET_VOLTAGE: {
+            // TODO: Get voltage reading from your ADC
+            uint16_t voltage = 1; //get_voltage(); // You'll need to implement this
+            uint8_t resp[2] = {
+                (voltage >> 8) & 0xFF,
+                voltage & 0xFF
+            };
+            send_response(CMD_GET_VOLTAGE, resp, 2);
+            break;
+        }
+        
+        case CMD_GET_GYRO: {
+            // TODO: Get gyro readings
+            int16_t gyro_data[3] = {0}; // Assuming X, Y, Z
+            //get_gyro_data(gyro_data);   // You'll need to implement this
+            uint8_t resp[6];
+            for(int i = 0; i < 3; i++) {
+                resp[i*2] = (gyro_data[i] >> 8) & 0xFF;
+                resp[i*2+1] = gyro_data[i] & 0xFF;
+            }
+            send_response(CMD_GET_GYRO, resp, 6);
+            break;
+        }
+        
+        case CMD_GET_STATS: {
+            // TODO: Implement your statistics gathering
+            uint8_t stats[4] = {0}; // Example stats packet
+            //get_system_stats(stats); // You'll need to implement this
+            send_response(CMD_GET_STATS, stats, 4);
+            break;
+        }
+    }
 }
 
 /**************************************************************************
-º¯Êý¹¦ÄÜ£º´®¿Ú3½ÓÊÕÖÐ¶Ï
-Èë¿Ú²ÎÊý£ºÎÞ
-·µ»Ø  Öµ£ºÎÞ
+Ü£3Ð¶
+Ú²
+  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
-int USART3_IRQHandler(void)
+int USART2_IRQHandler(void)
 {
-	if (USART3->SR & (1 << 5))//½ÓÊÕµ½Êý¾Ý
+	if (USART2->SR & (1 << 5))//ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		u8 temp;
-		static u8 count, last_data, last_last_data, Usart_ON_Count;
-		if (Usart_ON_Flag == 0)
-		{
-			if (++Usart_ON_Count > 10)Usart_ON_Flag = 1;
+		static uint8_t count = 0;
+		static uint8_t cmd_started = 0;
+		uint8_t temp = USART2->DR;
+		
+		// Check for start byte
+		if(temp == CMD_START_BYTE && !cmd_started) {
+			cmd_started = 1;
+			count = 0;
+			return 0;
 		}
-		temp = USART3->DR;
-		Show_Data_Mb = temp;
-		if (Usart_Flag == 0)
-		{
-			if (last_data == 0xfe && last_last_data == 0xff)
-				Usart_Flag = 1, count = 0;
+		
+		// If we're receiving a command, store it
+		if(cmd_started && count < MAX_BUFFER_SIZE) {
+			cmdBuffer[count++] = temp;
+			
+			// Process command if we have enough bytes
+			// First byte after start byte is command type
+			// Second byte is data length
+			if(count >= 2) {
+				uint8_t expected_len = cmdBuffer[1];
+				if(count >= expected_len + 2) {
+					process_command(cmdBuffer, count);
+					cmd_started = 0;
+					count = 0;
+				}
+			}
 		}
-		if (Usart_Flag == 1)
-		{
-			Urxbuf[count] = temp;
-			count++;
-			if (count == 8)Usart_Flag = 0;
-		}
-		last_last_data = last_data;
-		last_data = temp;
 	}
 	return 0;
 }

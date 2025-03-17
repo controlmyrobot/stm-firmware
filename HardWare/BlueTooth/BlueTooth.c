@@ -1,8 +1,8 @@
 #include "BlueTooth.h"
 
 /**************************************************************************
-×÷Õß£ºÄ«±ÈË¹¿Æ¼¼
-ÎÒµÄÌÔ±¦Ð¡µê£ºhttps://moebius.taobao.com/
+ï¿½ï¿½ï¿½ß£ï¿½Ä«ï¿½ï¿½Ë¹ï¿½Æ¼ï¿½
+ï¿½Òµï¿½ï¿½Ô±ï¿½Ð¡ï¿½ê£ºhttps://moebius.taobao.com/
 **************************************************************************/
 
 #define MAXQSIZE	10
@@ -10,8 +10,12 @@
 LinkQueue *Uart_Queue;
 int QueueSize;
 
+#define MAX_BUFFER_SIZE 64
+static uint8_t rxBuffer[MAX_BUFFER_SIZE];
+static uint8_t rxIndex = 0;
+
 //========================================================================
-//´´½¨Á´±í¶ÓÁÐ
+//
 void InitQueue()
 {
 	Uart_Queue = (LinkQueue*)malloc(sizeof(LinkQueue));
@@ -22,8 +26,8 @@ void InitQueue()
 }
 
 //========================================================================
-//Èë¶Ó
-void InQueue(u8 Data)		//Í·²å·¨´´½¨Á´±í
+//ï¿½ï¿½ï¿½
+void InQueue(u8 Data)		//Í·ï¿½å·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	if (QueueSize >= MAXQSIZE)
 	{
@@ -32,6 +36,8 @@ void InQueue(u8 Data)		//Í·²å·¨´´½¨Á´±í
 	}
 	else
 	{
+		//printf("Debug: Adding queue data\r\n");
+		//printf("%u", Data);
 		QNode* NewNode = (QNode*)malloc(sizeof(QNode));
 		NewNode->data = Data;
 		NewNode->next = Uart_Queue->Hand;
@@ -41,7 +47,7 @@ void InQueue(u8 Data)		//Í·²å·¨´´½¨Á´±í
 }
 
 //========================================================================
-//³ö¶Ó
+//ï¿½ï¿½ï¿½ï¿½
 u8 OutQueue()
 {
 	QNode* Temp;
@@ -63,7 +69,7 @@ u8 OutQueue()
 }
 
 //========================================================================
-//¼ì²é¶ÓÁÐÊÇ·ñÎª¿Õ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 u8 InspectQueue()
 {
 	if(Uart_Queue->Tail == Uart_Queue->Hand)
@@ -72,9 +78,8 @@ u8 InspectQueue()
 		return 1;
 }
 
-
 //========================================================================
-//Êä³ö¶ÓÁÐ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void PrintQueue()
 {
 	QNode* Temp;
@@ -93,60 +98,117 @@ void USART3_Send_Data(u8 Dat)
 	while(USART_GetFlagStatus(USART3, USART_FLAG_TC) != SET);      
 	USART_ClearFlag(USART3,USART_FLAG_TC);
 }
-
+/*******************************************************************************
+* ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½         : USART1_Init
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		   : USART1ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* ï¿½ï¿½    ï¿½ï¿½         : bound:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* ï¿½ï¿½    ï¿½ï¿½         : ï¿½ï¿½
+*******************************************************************************/ 
 void USART3_Init(u32 bound)
 {
-	//GPIO¶Ë¿ÚÉèÖÃ
+	//GPIOï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE);
-	GPIO_PinRemapConfig(GPIO_PartialRemap_USART3, ENABLE); 				//Uart3ÖØÓ³Éä
+	GPIO_PinRemapConfig(GPIO_PartialRemap_USART3, ENABLE); 				//Uart3ï¿½ï¿½Ó³ï¿½ï¿½
  
-	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//´®¿ÚÊä³öPA2
+	/*  ï¿½ï¿½ï¿½ï¿½GPIOï¿½ï¿½Ä£Ê½ï¿½ï¿½IOï¿½ï¿½ */
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PA2
 	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;			//¸´ÓÃÍÆÍìÊä³ö
-	GPIO_Init(GPIOC,&GPIO_InitStructure);					
-	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_11;//RX			//´®¿ÚÊäÈëPA3
-	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IN_FLOATING;		//Ä£ÄâÊäÈë
-	GPIO_Init(GPIOC,&GPIO_InitStructure);					
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	GPIO_Init(GPIOC,&GPIO_InitStructure);					/* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IO */
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_11;//RX			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PA3
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IN_FLOATING;		//Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	GPIO_Init(GPIOC,&GPIO_InitStructure);					/* ï¿½ï¿½Ê¼ï¿½ï¿½GPIO */
 	
-	//USART1 ³õÊ¼»¯ÉèÖÃ
-	USART_InitStructure.USART_BaudRate = bound;						//²¨ÌØÂÊÉèÖÃ
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b;		//×Ö³¤Îª8Î»Êý¾Ý¸ñÊ½
-	USART_InitStructure.USART_StopBits = USART_StopBits_1;			//Ò»¸öÍ£Ö¹Î»
-	USART_InitStructure.USART_Parity = USART_Parity_No;				//ÎÞÆæÅ¼Ð£ÑéÎ»
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//ÎÞÓ²¼þÊý¾ÝÁ÷¿ØÖÆ
-	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//ÊÕ·¢Ä£Ê½
-	USART_Init(USART3, &USART_InitStructure);				//³õÊ¼»¯´®¿Ú1
+	//USART1 ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_InitStructure.USART_BaudRate = bound;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;		//ï¿½Ö³ï¿½Îª8Î»ï¿½ï¿½ï¿½Ý¸ï¿½Ê½
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;			//Ò»ï¿½ï¿½Í£Ö¹Î»
+	USART_InitStructure.USART_Parity = USART_Parity_No;				//ï¿½ï¿½ï¿½ï¿½Å¼Ð£ï¿½ï¿½Î»
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//ï¿½Õ·ï¿½Ä£Ê½
+	USART_Init(USART3, &USART_InitStructure);				//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1
 	  
 	
 	USART_ClearFlag(USART3, USART_FLAG_TC);
 		
-	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);			//¿ªÆôÏà¹ØÖÐ¶Ï
-	USART_Cmd(USART3, ENABLE);								//Ê¹ÄÜ´®¿Ú1 
+	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+	USART_Cmd(USART3, ENABLE);								//Ê¹ï¿½Ü´ï¿½ï¿½ï¿½1 
 
-	//Usart1 NVIC ÅäÖÃ
-	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;		//´®¿Ú1ÖÐ¶ÏÍ¨µÀ
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=2;	//ÇÀÕ¼ÓÅÏÈ¼¶3
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority =3;		//×ÓÓÅÏÈ¼¶3
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQÍ¨µÀÊ¹ÄÜ
-	NVIC_Init(&NVIC_InitStructure);							//¸ù¾ÝÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯VIC¼Ä´æÆ÷
+	//Usart1 NVIC ï¿½ï¿½ï¿½ï¿½
+	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;		//ï¿½ï¿½ï¿½ï¿½1ï¿½Ð¶ï¿½Í¨ï¿½ï¿½
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=2;	//ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½È¼ï¿½3
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority =3;		//ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½3
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQÍ¨ï¿½ï¿½Ê¹ï¿½ï¿½
+	NVIC_Init(&NVIC_InitStructure);							//ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½VICï¿½Ä´ï¿½ï¿½ï¿½
 	
 	InitQueue();
+	printf("USART3_Init done\r\n");
 }
 
-void USART3_IRQHandler(void)									//´®¿Ú1ÖÐ¶Ï·þÎñ³ÌÐò
-{
-	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)		//½ÓÊÕÖÐ¶Ï
-	{
-		InQueue(USART_ReceiveData(USART3));
-	} 
-} 
+/*******************************************************************************
+* ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½         : USART1_IRQHandler
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		   : USART1ï¿½Ð¶Ïºï¿½ï¿½ï¿½
+* ï¿½ï¿½    ï¿½ï¿½         : ï¿½ï¿½
+* ï¿½ï¿½    ï¿½ï¿½         : ï¿½ï¿½
+*******************************************************************************/ 
 
- 
+void USART3_IRQHandler(void) {
+    if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) {
+		printf("USART3_IRQHandler\r\n");
+        uint8_t receivedByte = USART_ReceiveData(USART3);
+        USART_SendData(USART3, receivedByte); // Echo back for confirmation
 
+        // Store the received byte in the buffer
+        if (rxIndex < MAX_BUFFER_SIZE) {
+            rxBuffer[rxIndex++] = receivedByte;
+        }
 
+        // Check for end of message (e.g., newline character or specific length)
+        if (receivedByte == '\n' || rxIndex >= MAX_BUFFER_SIZE) {
+            // Process the complete message
+            processReceivedMessage(rxBuffer, rxIndex);
+            rxIndex = 0; // Reset index for next message
+        }
 
+        //while (USART_GetFlagStatus(USART3, USART_FLAG_TC) != SET);
+    }
+    //USART_ClearFlag(USART3, USART_FLAG_TC);
+}
+
+#define CMD_MOVE 0x01
+
+void processReceivedMessage(uint8_t *buffer, uint8_t length) {
+    // Example: Check the first byte for command type
+    switch (buffer[0]) {
+        case CMD_MOVE:
+            if (length >= 4) { // Ensure there are enough bytes for X, Y, Z
+                int Move_X = (int)buffer[1];
+                int Move_Y = (int)buffer[2];
+                int Move_Z = (int)buffer[3];
+
+                // Ensure values are within the range of 0 to 25
+                if (Move_X < 0) Move_X = 0;
+                if (Move_X > 25) Move_X = 25;
+                if (Move_Y < 0) Move_Y = 0;
+                if (Move_Y > 25) Move_Y = 25;
+                if (Move_Z < 0) Move_Z = 0;
+                if (Move_Z > 25) Move_Z = 25;
+
+                Kinematic_Analysis((float)Move_X, (float)Move_Y, (float)Move_Z);
+
+                EXTI15_10_IRQHandler();
+            }
+            break;
+        
+        // Handle other commands
+
+        default:
+            // Handle unknown command
+            break;
+    }
+} 	

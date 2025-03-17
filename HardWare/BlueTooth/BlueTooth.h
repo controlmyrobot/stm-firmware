@@ -8,7 +8,7 @@ typedef struct QNode{
 	struct QNode* next;
 } QNode;
 
-//¶ÓÁÐµÄ½á¹¹£¬Ç¶Ì×
+//ï¿½ï¿½ï¿½ÐµÄ½á¹¹ï¿½ï¿½Ç¶ï¿½ï¿½
 typedef struct {
 	QNode *Hand;
 	QNode *Tail;
@@ -20,5 +20,6 @@ void USART3_Send_Data(u8 Dat);
 u8 InspectQueue(void);
 u8 OutQueue(void);
 void InQueue(u8 Data);
+void processReceivedMessage(uint8_t *buffer, uint8_t length);
 
 #endif
