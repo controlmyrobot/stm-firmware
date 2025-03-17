@@ -1,20 +1,20 @@
-#include "Sys.h"
+#include "sys.h"
 
 /**************************************************************************
-×÷Õß£ºÄ«±ÈË¹¿Æ¼¼
-ÎÒµÄÌÔ±¦Ð¡µê£ºhttps://moebius.taobao.com/
+ï¿½ï¿½ï¿½ß£ï¿½Ä«ï¿½ï¿½Ë¹ï¿½Æ¼ï¿½
+ï¿½Òµï¿½ï¿½Ô±ï¿½Ð¡ï¿½ê£ºhttps://moebius.taobao.com/
 **************************************************************************/ 
 
 /*************************************************
 Function: pinMode(unsigned char GPIOx, unsigned char Pin, unsigned char Mode)
-Description: Ê¹ÓÃº¯Êý²Ù×÷½«¹Ü½Å³õÊ¼»¯·â×°ÎªÀàËÆarduino·½Ê½
+Description: Ê¹ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü½Å³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½×°Îªï¿½ï¿½ï¿½ï¿½arduinoï¿½ï¿½Ê½
 Input: GPIOx: PA-PG	Pin: 0-15	Mode: INPUT/OUTPUT
 Output: void
 Return: void
 *************************************************/
 void pinMode(unsigned char GPIOx, unsigned char Pin, unsigned char Mode)
 {
-	RCC->APB2ENR |= 0x01 << GPIOx;					//Ê¹ÄÜ¶Ë¿ÚÊ±ÖÓ
+	RCC->APB2ENR |= 0x01 << GPIOx;					//Ê¹ï¿½Ü¶Ë¿ï¿½Ê±ï¿½ï¿½
 	if(Pin > 7)
 	{
 		Pin -= 8;

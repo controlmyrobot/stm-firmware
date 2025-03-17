@@ -1,26 +1,27 @@
 #include "sys.h"
+#include "spi.h"
 /**************************************************************************
-×÷Õß£ºÄ«±ÈË¹¿Æ¼¼
-ÎÒµÄÌÔ±¦Ð¡µê£ºhttps://moebius.taobao.com/
+ß£Ä«Ë¹Æ¼
+ÒµÔ±Ð¡ê£ºhttps://moebius.taobao.com/
 **************************************************************************/ 
-u8 Flag_Left, Flag_Right, Flag_Direction = 0;		//À¶ÑÀÒ£¿ØÏà¹ØµÄ±äÁ¿
-u8 Flag_Stop = 1, Flag_Show = 0;					//Í£Ö¹±êÖ¾Î»ºÍ ÏÔÊ¾±êÖ¾Î» Ä¬ÈÏÍ£Ö¹ ÏÔÊ¾´ò¿ª
-int Encoder_A, Encoder_B, Encoder_C, Encoder_D;		//±àÂëÆ÷µÄÂö³å¼ÆÊý
-long int Position_A, Position_B, Position_C, Position_D, Rate_A, Rate_B, Rate_C, Rate_D; //PID¿ØÖÆÏà¹Ø±äÁ¿
-int Encoder_A_EXTI;									//Í¨¹ýÍâ²¿ÖÐ¶Ï¶ÁÈ¡µÄ±àÂëÆ÷Êý¾Ý                       
-long int Motor_A, Motor_B, Motor_C, Motor_D;		//µç»úPWM±äÁ¿
-long int Target_A = 6, Target_B = 6, Target_C = 6, Target_D = 6;	//µç»úÄ¿±êÖµ
-int Voltage;										//µç³ØµçÑ¹²ÉÑùÏà¹ØµÄ±äÁ¿
-float Show_Data_Mb;									//È«¾ÖÏÔÊ¾±äÁ¿£¬ÓÃÓÚÏÔÊ¾ÐèÒª²é¿´µÄÊý¾Ý                         
-u8 delay_50, delay_flag;							//ÑÓÊ±Ïà¹Ø±äÁ¿
-u8 Run_Flag = 0;  									//À¶ÑÀÒ£¿ØÏà¹Ø±äÁ¿ºÍÔËÐÐ×´Ì¬±êÖ¾Î»
-u8 rxbuf[8], Urxbuf[8], CAN_ON_Flag = 0, Usart_ON_Flag = 0, PS2_ON_Flag = 0, Usart_Flag, PID_Send, Flash_Send;  //CANºÍ´®¿Ú¿ØÖÆÏà¹Ø±äÁ¿
-u8 txbuf[8], txbuf2[8], Turn_Flag;					//CAN·¢ËÍÏà¹Ø±äÁ¿
-float Pitch, Roll, Yaw, Move_X, Move_Y, Move_Z;		//ÈýÖá½Ç¶ÈºÍXYZÖáÄ¿±êËÙ¶È
-u16 PID_Parameter[10], Flash_Parameter[10];			//FlashÏà¹ØÊý×é
-float	Position_KP = 6, Position_KI = 0, Position_KD = 3;	//Î»ÖÃ¿ØÖÆPID²ÎÊý
-float Velocity_KP = 10, Velocity_KI = 10;			//ËÙ¶È¿ØÖÆPID²ÎÊý
-int RC_Velocity = 25, RC_Position = 1000;			//ÉèÖÃÒ£¿ØµÄËÙ¶ÈºÍÎ»ÖÃÖµ
+u8 Flag_Left, Flag_Right, Flag_Direction = 0;		//Ò£ØµÄ±
+u8 Flag_Stop = 1, Flag_Show = 0;					//Ö¹Í£Ö¾Î» Ê¾Ö¾Î» Ä¬Ö¹Í£ Ê¾
+int Encoder_A, Encoder_B, Encoder_C, Encoder_D;		//
+long int Position_A, Position_B, Position_C, Position_D, Rate_A, Rate_B, Rate_C, Rate_D; //PIDØ±
+int Encoder_A_EXTI;									//Í¨â²¿Ð¶Ï¶È¡Ä±                       
+long int Motor_A, Motor_B, Motor_C, Motor_D;		//PWM
+long int Target_A = 6, Target_B = 6, Target_C = 6, Target_D = 6;	//Ä¿Öµ
+int Voltage;										//ØµÑ¹ØµÄ±
+float Show_Data_Mb;									//È«Ê¾Ê¾Òªé¿´                         
+u8 delay_50, delay_flag;							//Ê±Ø±
+u8 Run_Flag = 0;  									//Ò£Ø±×´Ì¬Ö¾Î»
+u8 rxbuf[8], Urxbuf[8], CAN_ON_Flag = 0, Usart_ON_Flag = 0, PS2_ON_Flag = 0, Usart_Flag, PID_Send, Flash_Send;  //CANÊ¹Ú¿Ø±
+u8 txbuf[8], txbuf2[8], Turn_Flag;					//CANØ±
+float Pitch, Roll, Yaw, Move_X, Move_Y, Move_Z;		//Ç¶ÈºXYZÄ¿Ù¶
+u16 PID_Parameter[10], Flash_Parameter[10];			//Flash
+float	Position_KP = 6, Position_KI = 0, Position_KD = 3;	//Î»Ã¿PID
+float Velocity_KP = 10, Velocity_KI = 10;			//Ù¶È¿PID
+int RC_Velocity = 25, RC_Position = 1000;			//Ò£ØµÙ¶ÈºÎ»Öµ
 int PS2_LX, PS2_LY, PS2_RX, PS2_RY, PS2_KEY;
 int Gryo_Z;
 /*************************************************
@@ -32,35 +33,38 @@ Return: void
 *************************************************/
 void Peripheral_Init()
 {
-	LED_Init();						//=====³õÊ¼»¯Óë LED Á¬½ÓµÄÓ²¼þ½Ó¿Ú
-	KEY_Init();						//=====°´¼ü³õÊ¼»¯
+	LED_Init();						//=====Ê¼ LED ÓµÓ²Ó¿
+	KEY_Init();						//=====Ê¼
 
-	USART1_Init(9600);				//=====´®¿Ú³õÊ¼»¯
-	USART3_Init(9600);				//=====À¶ÑÀ´®¿Ú
+	USART1_Init(9600);				//=====Ú³Ê¼
+	USART3_Init(9600);				//=====
 	
-	MiniBalance_PWM_Init(7199,0);	//=====µç»úÇý¶¯
+	MiniBalance_PWM_Init(7199,0);	//=====
 
 	Adc_Init();
 	
-	PS2_Init();
+	//PS2_Init();
 
 #if MPU6xxx_ENABLE
 	IIC_Init();
-	MPU6050_initialize();           //=====MPU6050³õÊ¼»¯	
-	DMP_Init();                     //=====³õÊ¼»¯DMP   
+	MPU6050_initialize();           //=====MPU6050Ê¼	
+	DMP_Init();                     //=====Ê¼DMP   
 #endif
 	
 #if OLED_DISPLAY_ENABLE
-	OLED_Init();					//=====OLED³õÊ¼»¯
+	OLED_Init();					//=====OLEDÊ¼
 #endif
 	
-#if ENCODER_ENABLE					//=====±àÂëÆ÷³õÊ¼»¯
+#if ENCODER_ENABLE					//=====Ê¼
 	Encoder_Init_TIM2();
 	Encoder_Init_TIM3();
 	Encoder_Init_TIM4();
 	Encoder_Init_TIM5();
 #endif
 	EXTI15_Init();
+
+	// Initialize SPI for Raspberry Pi communication
+	SPI_Slave_Init();
 }
 
 /*************************************************
@@ -76,39 +80,44 @@ int main(void)
 	Peripheral_Init();
 	while (1)
 	{	
-		if(PS2_KEY)
-		{
-			do
-			{
-				if(PS2_Hold)	break;
-				PS2_Hold = 1;
-				printf("PS2 Key = %d",PS2_KEY);	
-				switch(PS2_KEY)		//PS2°´¼ü´¦Àí
-				{
-					case 1:						break;		//select
-					case 2:						break;		//LÒ¡¸Ë°´¼ü
-					case 3:						break;		//RÒ¡¸Ë°´¼ü
-					case 4:	PS2_BLU = 0;		break;		//start
-					case 5:						break;		//LÇ°
-					case 6:						break;		//LÓÒ
-					case 7:						break;		//Lºó
-					case 8:						break;		//L×ó
-					case 9:						break;		//L2¼ü
-					case 10:					break;		//R2¼ü
-					case 11:					break;		//L1¼ü
-					case 12:					break;		//R1¼ü
-					case 13:	if(PS2_Hold && RC_Velocity < 25) RC_Velocity += 5;		break;		//RÉÏ
-					case 14:					break;		//RÓÒ
-					case 15:	if(PS2_Hold && RC_Velocity > 5) RC_Velocity -= 5;		break;		//RÏÂ
-					case 16:					break;		//R×ó
-				}
-			}while(0);
+		// Process SPI commands if available
+		if (SPI_RxComplete) {
+			SPI_Process_Command();
 		}
-		else	PS2_Hold = 0;
-		PS2_Receive();
-        delay_ms(10);
-		#if OLED_DISPLAY_ENABLE
-		oled_show();
-		#endif
+
+		// if(PS2_KEY)
+		// {
+		// 	do
+		// 	{
+		// 		if(PS2_Hold)	break;
+		// 		PS2_Hold = 1;
+		// 		printf("PS2 Key = %d",PS2_KEY);	
+		// 		switch(PS2_KEY)		//PS2
+		// 		{
+		// 			case 1:						break;		//select
+		// 			case 2:						break;		//LÒ¡Ë°
+		// 			case 3:						break;		//RÒ¡Ë°
+		// 			case 4:	PS2_BLU = 0;		break;		//start
+		// 			case 5:						break;		//LÇ°
+		// 			case 6:						break;		//L
+		// 			case 7:						break;		//L
+		// 			case 8:						break;		//L
+		// 			case 9:						break;		//L2
+		// 			case 10:					break;		//R2
+		// 			case 11:					break;		//L1
+		// 			case 12:					break;		//R1
+		// 			case 13:	if(PS2_Hold && RC_Velocity < 25) RC_Velocity += 5;		break;		//R
+		// 			case 14:					break;		//R
+		// 			case 15:	if(PS2_Hold && RC_Velocity > 5) RC_Velocity -= 5;		break;		//R
+		// 			case 16:					break;		//R
+		// 		}
+		// 	}while(0);
+		// }
+		// else	PS2_Hold = 0;
+		// PS2_Receive();
+        // delay_ms(10);
+		// #if OLED_DISPLAY_ENABLE
+		// oled_show();
+		// #endif
 	}
 }

@@ -1,4 +1,4 @@
-#include "Sys.h"
+#include "sys.h"
 
 //unsigned char bSysTick;
 
@@ -24,8 +24,8 @@
 //	
 //	NVIC_InitStruct.NVIC_IRQChannel 			=		TIM3_IRQn;
 //	NVIC_InitStruct.NVIC_IRQChannelCmd 			=		ENABLE;
-//	NVIC_InitStruct.NVIC_IRQChannelSubPriority 	=		0;				//´ÓÓÅÏÈ¼¶
-//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority =	3;				//ÏÈÕ¼ÓÅÏÈ¼¶
+//	NVIC_InitStruct.NVIC_IRQChannelSubPriority 	=		0;				//ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½
+//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority =	3;				//ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½È¼ï¿½
 //	NVIC_Init(&NVIC_InitStruct);
 //	
 //	TIM_Cmd(TIM3,ENABLE);
@@ -35,7 +35,7 @@
 //{
 //	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==1)
 //	{
-//		bSysTick = 1;		//5ms¶¨Ê±Æ÷Òç³ö±êÖ¾
+//		bSysTick = 1;		//5msï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 //	}
 //	TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
 //}

@@ -13,8 +13,8 @@
  *                  MPU9250 (or MPU6500 w/ AK8963 on the auxiliary bus)
  */
 #include <sys.h>
-#include "usart.h"
-#include "ioi2c.h"
+#include "USART.h"
+#include "IOI2C.h"
 
 /* The following functions must be defined for this platform:
  * i2c_write(unsigned char slave_addr, unsigned char reg_addr,
