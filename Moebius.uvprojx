@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\STM32F10x_StdPeriph_Driver\src;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\Libraries\CMSIS;.\Public;.\HardWare\KEY;.\HardWare\LED;.\HardWare\BlueTooth;.\HardWare\OLED;.\HardWare\ENCODER;.\HardWare\ADC;.\HardWare\BALANCE\CONTROL;.\HardWare\BALANCE\DataScope_DP;.\HardWare\BALANCE\DMP;.\HardWare\BALANCE\filter;.\HardWare\BALANCE\MPU6050;.\HardWare\BALANCE\show;.\HardWare\IIC;.\HardWare\EXTI;.\HardWare\MOTOR;.\HardWare\PS2</IncludePath>
+              <IncludePath>.\User;.\Libraries\STM32F10x_StdPeriph_Driver\src;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\Libraries\CMSIS;.\Public;.\HardWare\KEY;.\HardWare\LED;.\HardWare\BlueTooth;.\HardWare\OLED;.\HardWare\ENCODER;.\HardWare\ADC;.\HardWare\BALANCE\CONTROL;.\HardWare\BALANCE\DataScope_DP;.\HardWare\BALANCE\DMP;.\HardWare\BALANCE\filter;.\HardWare\BALANCE\MPU6050;.\HardWare\BALANCE\show;.\HardWare\IIC;.\HardWare\EXTI;.\HardWare\MOTOR;.\HardWare\PS2;.\HardWare\SPI;.\HardWare\USARTX</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -450,6 +450,11 @@
               <FileType>1</FileType>
               <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -544,6 +549,16 @@
               <FileName>MPU6050.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HardWare\BALANCE\MPU6050\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\SPI\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>usartx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HardWare\USARTX\usartx.c</FilePath>
             </File>
           </Files>
         </Group>
