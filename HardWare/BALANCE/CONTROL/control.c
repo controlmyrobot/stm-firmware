@@ -61,6 +61,7 @@ int EXTI15_10_IRQHandler(void)
 			TimClk--;
 			if(TimClk == 0)
 			{
+				print("... LED");
 				TimClk = 200;
 				LED = ~LED;
 			}
@@ -109,8 +110,14 @@ int EXTI15_10_IRQHandler(void)
 		
 		
 
-		// this use to take the WASD command and map it to movement, we're going to avoid that 
-		// Get_RC(0);
+		if(Incoming_Command_Movement_Legacy==1){
+			// if we're getting legacy WASD commands, call Get_RC() which will convert these to motor XY 
+			
+			Get_RC();
+		}else{
+			// otherwise we have already called Kinematic_Analysis() from BlueTooth.c with the args.
+			print("... doing joystick")
+		}
 		
 		Xianfu_Pwm(6900);                     //===PWM�޷�
 		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===��ֵ��PWM�Ĵ��� 
@@ -257,8 +264,15 @@ int Incremental_PI_D (int Encoder,int Target)
 ��ڲ���������ָ��
 ����  ֵ����
 **************************************************************************/
-void Get_RC(u8 mode)
+void Get_RC()
 {
+
+	if(InspectQueue()){
+		printf("InspectQueue has new message\r\n");
+		Flag_Direction = OutQueue();
+		printf("New Flag_Direction %d\r\n", Flag_Direction);
+	}
+
 	float step=0.25;  //�����ٶȿ��Ʋ���ֵ��
 	float stepSide=0.04;  //�����ٶȿ��Ʋ���ֵ��
 	u8 Flag_Move=1;
@@ -284,6 +298,8 @@ void Get_RC(u8 mode)
 	float moveForwardSpeed = 2 * speedMultiplier;
 	float moveZSpeed = 1 * speedMultiplier;
 	float moveLeftRightSpeed = 0.5 * speedMultiplierLeftRight;
+
+printf("Flag_Direction %d\r\n", Flag_Direction);
 		
 	switch(Flag_Direction)   //�������
 	{

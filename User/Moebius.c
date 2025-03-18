@@ -4,7 +4,7 @@
 �ҵ��Ա�С�꣺https://moebius.taobao.com/
 **************************************************************************/ 
 u8 Flag_Left, Flag_Right, Flag_Direction = 0;		//����ң����صı���
-u8 Incoming_Command = 0;
+u8 Incoming_Command_Movement_Legacy = 1;
 u8 Flag_Stop = 1, Flag_Show = 0;					//ֹͣ��־λ�� ��ʾ��־λ Ĭ��ֹͣ ��ʾ��
 int Encoder_A, Encoder_B, Encoder_C, Encoder_D;		//���������������
 long int Position_A, Position_B, Position_C, Position_D, Rate_A, Rate_B, Rate_C, Rate_D; //PID������ر���
@@ -37,8 +37,8 @@ void Peripheral_Init()
 	KEY_Init();						//=====������ʼ��
 
 	USART1_Init(9600);				//=====���ڳ�ʼ��
+	USART2_Init(9600);
 	USART3_Init(9600);				//=====��������
-	uart2_init(72000000, 9600);
 	
 	MiniBalance_PWM_Init(7199,0);	//=====�������
 

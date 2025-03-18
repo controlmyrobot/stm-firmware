@@ -14,6 +14,8 @@ int fputc(int ch,FILE *p)  //����Ĭ�ϵģ���ʹ��printf���
 * ��������		   : USART1��ʼ������
 * ��    ��         : bound:������
 * ��    ��         : ��
+PA9 = TX
+PA10 = RX
 *******************************************************************************/ 
 void USART1_Init(u32 bound)
 {
@@ -67,15 +69,17 @@ void USART1_Init(u32 bound)
 *******************************************************************************/ 
 void USART1_IRQHandler(void)									//����1�жϷ������
 {
+	
 	// I think this was the old USB serial code.
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)		//�����ж�
 	{
 		Usart1_Buf = USART_ReceiveData(USART1);//(USART1->DR);	//��ȡ���յ�������
-		//USART_SendData(USART1,Usart1_Buf); //Usart1_Buf
-		printf("USART1_IRQHandler\r\n");
+		USART_SendData(USART1,Usart1_Buf); //Usart1_Buf
+		printf("USB: USART1_IRQHandler 1\r\n");
+		// USB disabled: using UART now...
 		InQueue(Usart1_Buf);
 		//USART_SendData(USART1,InspectQueue() ? 'Y' : 'N');
-		EXTI15_10_IRQHandler();
+		//EXTI15_10_IRQHandler(); // this gets called automatically.
 		while(USART_GetFlagStatus(USART1,USART_FLAG_TC) != SET);
 	} 
 	USART_ClearFlag(USART1,USART_FLAG_TC);

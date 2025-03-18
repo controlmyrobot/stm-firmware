@@ -10,7 +10,7 @@
 LinkQueue *Uart_Queue;
 int QueueSize;
 
-#define MAX_BUFFER_SIZE 64
+#define MAX_BUFFER_SIZE 10
 static uint8_t rxBuffer[MAX_BUFFER_SIZE];
 static uint8_t rxIndex = 0;
 
@@ -103,6 +103,8 @@ void USART3_Send_Data(u8 Dat)
 * ��������		   : USART1��ʼ������
 * ��    ��         : bound:������
 * ��    ��         : ��
+PB10 = TX (PD8,PC10 = remapped)
+PB11 = RX (PD9,PC11 = remapped)
 *******************************************************************************/ 
 void USART3_Init(u32 bound)
 {
@@ -111,12 +113,22 @@ void USART3_Init(u32 bound)
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
+	
+	// RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
+ 	// GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//�������PA2
+	// GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+	// GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;			//�����������
+	// GPIO_Init(GPIOB,&GPIO_InitStructure);					/* ��ʼ����������IO */
+	// GPIO_InitStructure.GPIO_Pin=GPIO_Pin_11;//RX			//��������PA3
+	// GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IN_FLOATING;		//ģ������
+	// GPIO_Init(GPIOB,&GPIO_InitStructure);					/* ��ʼ��GPIO */
+
 	GPIO_PinRemapConfig(GPIO_PartialRemap_USART3, ENABLE); 				//Uart3��ӳ��
- 
-	/*  ����GPIO��ģʽ��IO�� */
-	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//�������PA2
+ 	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;//TX				//�������PA2
 	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;			//�����������
 	GPIO_Init(GPIOC,&GPIO_InitStructure);					/* ��ʼ����������IO */
@@ -132,12 +144,13 @@ void USART3_Init(u32 bound)
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//��Ӳ������������
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//�շ�ģʽ
 	USART_Init(USART3, &USART_InitStructure);				//��ʼ������1
-	  
+
+	USART_Cmd(USART3, ENABLE);	  
 	
 	USART_ClearFlag(USART3, USART_FLAG_TC);
 		
 	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);			//��������ж�
-	USART_Cmd(USART3, ENABLE);								//ʹ�ܴ���1 
+								//ʹ�ܴ���1 
 
 	//Usart1 NVIC ����
 	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;		//����1�ж�ͨ��
@@ -159,7 +172,6 @@ void USART3_Init(u32 bound)
 
 void USART3_IRQHandler(void) {
     if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) {
-		printf("USART3_IRQHandler\r\n");
         uint8_t receivedByte = USART_ReceiveData(USART3);
         USART_SendData(USART3, receivedByte); // Echo back for confirmation
 
@@ -169,8 +181,9 @@ void USART3_IRQHandler(void) {
         }
 
         // Check for end of message (e.g., newline character or specific length)
-        if (receivedByte == '\n' || rxIndex >= MAX_BUFFER_SIZE) {
+        if (receivedByte == '\n' || receivedByte == '!' || rxIndex >= MAX_BUFFER_SIZE) {
             // Process the complete message
+			printf("processing...\r\n");
             processReceivedMessage(rxBuffer, rxIndex);
             rxIndex = 0; // Reset index for next message
         }
@@ -180,16 +193,31 @@ void USART3_IRQHandler(void) {
     //USART_ClearFlag(USART3, USART_FLAG_TC);
 }
 
-#define CMD_MOVE 0x01
+#define CMD_MOVE 'j' // for joystick?
+#define CMD_MOVE_LEGACY 'm'
 
 void processReceivedMessage(uint8_t *buffer, uint8_t length) {
     // Example: Check the first byte for command type
+	// printf("processReceivedMessage\r\n");
+	
+	// printf("buffer[0] %d\r\n", buffer[0]);
     switch (buffer[0]) {
+		case CMD_MOVE_LEGACY:
+			// printf("CMD_MOVE_LEGACY\r\n");
+			// put our character movement into the old queue buffer
+			// this will be picked up by the legacy movement handerl.
+			// printf("buffer[1] %d\r\n", buffer[1]);
+			InQueue(buffer[1]);
+			Incoming_Command_Movement_Legacy = 1;
+			EXTI15_10_IRQHandler(); // this gets called automatically.
+			break;
         case CMD_MOVE:
+			Incoming_Command_Movement_Legacy = 0;
             if (length >= 4) { // Ensure there are enough bytes for X, Y, Z
                 int Move_X = (int)buffer[1];
                 int Move_Y = (int)buffer[2];
                 int Move_Z = (int)buffer[3];
+				printf("CMD_MOVE %d %d %d\r\n", Move_X, Move_Y, Move_Z);
 
                 // Ensure values are within the range of 0 to 25
                 if (Move_X < 0) Move_X = 0;
@@ -200,9 +228,10 @@ void processReceivedMessage(uint8_t *buffer, uint8_t length) {
                 if (Move_Z > 25) Move_Z = 25;
 
                 Kinematic_Analysis((float)Move_X, (float)Move_Y, (float)Move_Z);
-
-                EXTI15_10_IRQHandler();
-            }
+                EXTI15_10_IRQHandler(); // this gets called automatically.
+            }else{
+				printf("CMD_MOVE missing bytes\r\n");
+			}
             break;
         
         // Handle other commands

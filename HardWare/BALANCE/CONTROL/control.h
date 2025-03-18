@@ -20,5 +20,5 @@ int Incremental_PI_B (int Encoder,int Target);
 int Incremental_PI_C (int Encoder,int Target);
 int Incremental_PI_D (int Encoder,int Target);
 
-void Get_RC(u8 mode);
+void Get_RC();
 #endif
