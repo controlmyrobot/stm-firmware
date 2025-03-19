@@ -37,7 +37,7 @@ void Peripheral_Init()
 	KEY_Init();						//=====������ʼ��
 
 	USART1_Init(9600);				//=====���ڳ�ʼ��
-	USART2_Init(9600);
+	//USART2_Init(9600);
 	USART3_Init(9600);				//=====��������
 	
 	MiniBalance_PWM_Init(7199,0);	//=====�������

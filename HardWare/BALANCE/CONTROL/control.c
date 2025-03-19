@@ -61,7 +61,7 @@ int EXTI15_10_IRQHandler(void)
 			TimClk--;
 			if(TimClk == 0)
 			{
-				print("... LED");
+				//printf(" - IRQ() ... LED\r\n");
 				TimClk = 200;
 				LED = ~LED;
 			}
@@ -116,10 +116,11 @@ int EXTI15_10_IRQHandler(void)
 			Get_RC();
 		}else{
 			// otherwise we have already called Kinematic_Analysis() from BlueTooth.c with the args.
-			print("... doing joystick")
+			// printf(" - IRQ() ... doing joystick\r\n");
 		}
 		
 		Xianfu_Pwm(6900);                     //===PWM�޷�
+		//printf(" - IRQ() Setting PWM to: %d, %d, %d, %d\r\n", Motor_A, Motor_B, Motor_C, Motor_D);
 		Set_Pwm(Motor_A,Motor_B,Motor_C,Motor_D);     //===��ֵ��PWM�Ĵ��� 
 		
 		//USART_SendData(USART1,':');
@@ -268,9 +269,10 @@ void Get_RC()
 {
 
 	if(InspectQueue()){
-		printf("InspectQueue has new message\r\n");
 		Flag_Direction = OutQueue();
-		printf("New Flag_Direction %d\r\n", Flag_Direction);
+		// printf(" - Get_RC() New Flag_Direction %d\r\n", Flag_Direction);
+	}else{
+		//printf(" - Get_RC() OLD Flag_Direction %d\r\n", Flag_Direction);
 	}
 
 	float step=0.25;  //�����ٶȿ��Ʋ���ֵ��
@@ -299,7 +301,6 @@ void Get_RC()
 	float moveZSpeed = 1 * speedMultiplier;
 	float moveLeftRightSpeed = 0.5 * speedMultiplierLeftRight;
 
-printf("Flag_Direction %d\r\n", Flag_Direction);
 		
 	switch(Flag_Direction)   //�������
 	{

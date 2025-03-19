@@ -146,7 +146,7 @@ static uint8_t cmdBuffer[MAX_BUFFER_SIZE];
 **************************************************************************/
 int USART2_IRQHandler(void)
 {
-	printf("USART2_IRQHandler 1\r\n");
+	//printf("USART2_IRQHandler 1\r\n");
 	// if (USART2->SR & (1 << 5))//���յ�����
 	// {
 	// 	static uint8_t count = 0;

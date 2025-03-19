@@ -173,17 +173,24 @@ void USART3_Init(u32 bound)
 void USART3_IRQHandler(void) {
     if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) {
         uint8_t receivedByte = USART_ReceiveData(USART3);
-        USART_SendData(USART3, receivedByte); // Echo back for confirmation
+        //USART_SendData(USART3, receivedByte); // Echo back for confirmation
+
+		if(receivedByte == '%'){
+			// reset the buffer to accept commands.
+			rxIndex = 0;
+			return;
+		}
 
         // Store the received byte in the buffer
         if (rxIndex < MAX_BUFFER_SIZE) {
             rxBuffer[rxIndex++] = receivedByte;
         }
 
+		// printf("rxIndex: %d %d\r\n", rxIndex, receivedByte);
+
         // Check for end of message (e.g., newline character or specific length)
         if (receivedByte == '\n' || receivedByte == '!' || rxIndex >= MAX_BUFFER_SIZE) {
             // Process the complete message
-			printf("processing...\r\n");
             processReceivedMessage(rxBuffer, rxIndex);
             rxIndex = 0; // Reset index for next message
         }
@@ -199,6 +206,13 @@ void USART3_IRQHandler(void) {
 void processReceivedMessage(uint8_t *buffer, uint8_t length) {
     // Example: Check the first byte for command type
 	// printf("processReceivedMessage\r\n");
+
+	// print the buffer:
+	// printf("buffer: ");
+	// for (int i = 0; i < length; i++) {
+		// printf("%d ", buffer[i]);
+	// }
+	// printf("\r\n");
 	
 	// printf("buffer[0] %d\r\n", buffer[0]);
     switch (buffer[0]) {
@@ -217,7 +231,7 @@ void processReceivedMessage(uint8_t *buffer, uint8_t length) {
                 int Move_X = (int)buffer[1];
                 int Move_Y = (int)buffer[2];
                 int Move_Z = (int)buffer[3];
-				printf("CMD_MOVE %d %d %d\r\n", Move_X, Move_Y, Move_Z);
+				// printf("CMD_MOVE %d %d %d\r\n", Move_X, Move_Y, Move_Z);
 
                 // Ensure values are within the range of 0 to 25
                 if (Move_X < 0) Move_X = 0;
@@ -230,7 +244,7 @@ void processReceivedMessage(uint8_t *buffer, uint8_t length) {
                 Kinematic_Analysis((float)Move_X, (float)Move_Y, (float)Move_Z);
                 EXTI15_10_IRQHandler(); // this gets called automatically.
             }else{
-				printf("CMD_MOVE missing bytes\r\n");
+				// printf("CMD_MOVE missing bytes\r\n");
 			}
             break;
         
